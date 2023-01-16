@@ -1,0 +1,45 @@
+:root {
+  --fg: rgba(25, 28, 31);
+  --bg: rgba(255, 255, 255);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --main: #db324d;
+  --main-soft: #DA2F4B;
+  --fading-bg: rgba(22, 22, 26, 0.04);
+}
+.dark {
+  --fg: #fff;
+  --bg: rgba(25, 28, 31);
+  --nav-bg: rgba(25, 28, 31, 0.85);
+  --fading-bg: rgba(255, 255, 255, 0.04);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav__menu-list.active {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .nav__menu-list.active.theme {
+    position: unset;
+  }
+}
+
+.theme-select {
+  height: 100%;
+}
