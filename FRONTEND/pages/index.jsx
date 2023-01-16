@@ -9,9 +9,13 @@ export default function Home() {
   return (
     <SecondaryLayout>
       <Container>
-          <Left></Left>
+          <Left>
+              <h2>Open</h2>
+          </Left>
           <Middle><img src={"./assets/vagabond-min.png"} /></Middle>
-          <Right></Right>
+          <Right>
+              <h2>Lake</h2>
+          </Right>
       </Container>
     </SecondaryLayout>
   );
@@ -38,11 +42,21 @@ const Left = styled.div`
   min-height: 50%;
   width: 100%;
   background: var(--fading-bg);
-;
+  
+  h2 {
+    z-index: 999;
+    width: 100%;
+    font-size: 23em;
+    text-align: right;
+    color: var(--fg)
+
+  }
   
   @media (min-width: 768px) {
     height: 100%;
   }
+  
+  
 `;
 
 const Middle = styled.div`
@@ -50,10 +64,11 @@ const Middle = styled.div`
   
   img {
     position: absolute;
-  top: 15%;
-  left: 50%;
-  width: 30%;
-  margin-left: -15%;
+    top: 15%;
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    z-index: 0;
   }
   
 `;
@@ -62,7 +77,14 @@ const Right = styled.div`
   height: 50%;
   width: 100%;
   background: var(--main-soft);
-;
+
+  h2 {
+    z-index: 999;
+    width: 100%;
+    font-size: 23em;
+    text-align: left;
+    color: var(--fg)
+  }
   
   @media (min-width: 768px) {
   height: 100%;

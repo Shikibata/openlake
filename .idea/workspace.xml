@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Camera.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Experience.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Renderer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/Resources.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/Sizes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/Time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/assets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/World/Environment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/World/Room.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/World/World.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_decoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_decoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_encoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_wasm_wrapper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_decoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_decoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_encoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_wasm_wrapper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/models/room.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/4-mazzy-star-john-j-rodrigues-transparent.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/6-bmth-gustavo-pinto-dias.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/6n_jo1LD6qL3-KBKRmmF4OfSDVz7A6cRrm2qihQ17l0.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/image.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/shiba.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KPfsdK6YZ2mFcSt1z8CAUF4ica" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="" />
+      <created>1673881350853</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673881350853</updated>
+      <workItem from="1673881353426" duration="3686000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
