@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/experience/Camera.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/experience/Experience.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/experience/Renderer.js" beforeDir="false" />
@@ -27,12 +28,24 @@
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/6n_jo1LD6qL3-KBKRmmF4OfSDVz7A6cRrm2qihQ17l0.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/image.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/shiba.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/navigation/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/navigation/header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,12 +64,23 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/HLoic/Documents/openlake",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HLoic\Documents\openlake" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HLoic\Documents\openlake\FRONTEND\public" />
+      <recent name="C:\Users\HLoic\Documents\openlake\FRONTEND" />
+      <recent name="C:\Users\HLoic\Documents\openlake\FRONTEND\public\assets\fonts" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673881350853</updated>
-      <workItem from="1673881353426" duration="3686000" />
+      <workItem from="1673881353426" duration="11258000" />
     </task>
     <servers />
   </component>
