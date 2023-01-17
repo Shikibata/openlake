@@ -5,7 +5,7 @@
   --bg: rgba(255, 255, 255);
   --nav-bg: rgba(255, 255, 255, 0.85);
   --main: #db324d;
-  --main-soft: #DA2F4B;
+  --main-soft: #da2f4b;
   --fading-bg: rgba(22, 22, 26, 0.04);
 }
 .dark {
@@ -14,8 +14,6 @@
   --nav-bg: rgba(25, 28, 31, 0.85);
   --fading-bg: rgba(255, 255, 255, 0.04);
 }
-
-
 
 * {
   box-sizing: border-box;

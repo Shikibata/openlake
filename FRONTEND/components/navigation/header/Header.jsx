@@ -152,7 +152,6 @@ const WebsiteName = styled.h1`
   display: none;
   font-family: 'Righteous', cursive;
 
-
   @media (min-width: 768px) {
     display: block;
     font-size: 1.9rem;

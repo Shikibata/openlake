@@ -48,7 +48,7 @@ const Feeter = styled.footer`
   position: relative;
   width: 100%;
   bottom: 0;
-  background-color: var(--bg)
+  background-color: var(--bg);
 `;
 
 const Span = styled.span`

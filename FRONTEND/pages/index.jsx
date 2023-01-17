@@ -9,13 +9,22 @@ export default function Home() {
   return (
     <SecondaryLayout>
       <Container>
-          <Left>
-              <h2>Open</h2>
-          </Left>
-          <Middle><img src={"./assets/vagabond-min.png"} /></Middle>
-          <Right>
-              <h2>Lake</h2>
-          </Right>
+        <Left>
+          <h2>Open</h2>
+          <SmallTextLeft>
+            <p>
+              Sign up now on OpenLake and discover a whole new world of
+              possibilities. Create your account and start exploring today!
+            </p>
+          </SmallTextLeft>
+        </Left>
+        <Middle>
+          <img src={'./assets/vagabond-min.png'} />
+        </Middle>
+        <Right>
+          <h2>Lake</h2>
+          <ButtonRightConnect><a href={"/user/signup"}>Hop on the boat</a></ButtonRightConnect>
+        </Right>
       </Container>
     </SecondaryLayout>
   );
@@ -27,15 +36,13 @@ Home.getLayout = (page) => {
 
 const Container = styled.div`
   position: relative;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100%;
   overflow: hidden;
 
-
   @media (min-width: 1024px) {
-    
     flex-direction: row;
   }
 `;
@@ -47,7 +54,7 @@ const Left = styled.div`
   display: flex;
   align-items: end;
   justify-content: center;
-  
+
   h2 {
     font-family: 'Righteous', cursive;
     z-index: 999;
@@ -55,31 +62,43 @@ const Left = styled.div`
     text-align: center;
     color: var(--fg);
     align-items: center;
-    -webkit-text-stroke: 10px var(--bg);
+    -webkit-text-stroke: 3px var(--fg);
     paint-order: stroke fill;
   }
-  
+
   @media (min-width: 1024px) {
     height: 100%;
     align-items: center;
-    
+
     h2 {
       z-index: 0;
       width: 100%;
-      font-size:20vw;
+      font-size: 20vw;
       text-align: right;
-      color: var(--fg)
     }
   }
 `;
 
-const Middle = styled.div`
-
-  img {
-    display:none;
+const SmallTextLeft = styled.div`
+  display: flex;
+  position: absolute;
+  left: 2%;
+  right: 0%;
+  top: 15%;
+  transform: rotate(-5deg);
+  
+  @media (min-width: 1024px) {
+    top: 20%;
+    right: 60%;
   }
-  
-  
+`;
+
+
+const Middle = styled.div`
+  img {
+    display: none;
+  }
+
   @media (min-width: 1024px) {
     img {
       display: block;
@@ -91,9 +110,6 @@ const Middle = styled.div`
       z-index: 0;
     }
   }
-    
-  
-  
 `;
 
 const Right = styled.div`
@@ -103,7 +119,6 @@ const Right = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: center;
-  
 
   h2 {
     z-index: 999;
@@ -111,24 +126,41 @@ const Right = styled.div`
     font-size: 10em;
     text-align: center;
     color: var(--fg);
+    -webkit-text-stroke: 3px var(--fg);
     align-items: center;
-    
   }
 
   @media (min-width: 1024px) {
     height: 100%;
     align-items: center;
 
-
     h2 {
-      -webkit-text-stroke: 10px var(--bg);
       paint-order: stroke fill;
       z-index: 999;
       width: 100%;
-      font-size:20vw;
+      font-size: 20vw;
       text-align: left;
-      color: var(--fg)
     }
   }
 `;
 
+const ButtonRightConnect = styled.div`
+  display: flex;
+  position: absolute;
+  top: 80%;
+  
+  
+  @media (min-width: 1024px) {
+    left: 70%;
+    width: 100%;
+  }
+  
+  a {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    background-color: var(--fg);
+    color: var(--bg);
+    border: 1px solid var(--fading-bg);
+  }
+
+`;
