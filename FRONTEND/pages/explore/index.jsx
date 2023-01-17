@@ -14,7 +14,7 @@ export default function Index() {
   return (
     <PrimaryLayout>
       <ContainerNew ref={carousel} whileTap={{ cursor: 'grabbing' }}>
-        Newest
+        <h2>Newest</h2>
         <CardNew drag={'x'} dragConstraints={{ right: 0, left: -width }}>
           <CardItself>
             <Card as={'motion.div'} />
@@ -42,8 +42,11 @@ export default function Index() {
           </CardItself>
         </CardNew>
       </ContainerNew>
-      Most popular
       <ContainerTop>
+        <h2>Most popular</h2>
+        <CardTop>
+
+      </CardTop>
         <Card />
       </ContainerTop>
     </PrimaryLayout>
@@ -53,7 +56,13 @@ export default function Index() {
 const ContainerNew = styled(motion.div)`
   cursor: grab;
   overflow: hidden;
-  margin: 1rem;
+  padding-top: 8rem;
+  padding-left: 1rem;
+  
+  h2 {
+    text-align: center;
+    font-size: 3rem;
+  }
 `;
 
 const CardNew = styled(motion.div)`
@@ -61,4 +70,15 @@ const CardNew = styled(motion.div)`
 `;
 
 const CardItself = styled(motion.div)``;
-const ContainerTop = styled(motion.div)``;
+const ContainerTop = styled(motion.div)`
+  cursor: grab;
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  
+  h2 {
+    text-align: center;
+  }
+`;
+
+const CardTop = styled(motion.div)``;
