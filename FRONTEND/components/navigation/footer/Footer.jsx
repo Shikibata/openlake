@@ -45,7 +45,7 @@ const Feeter = styled.footer`
   display: flex;
   -webkit-box-align: stretch;
   align-items: stretch;
-  position: relative;
+  position: fixed;
   width: 100%;
   bottom: 0;
   background-color: var(--bg);

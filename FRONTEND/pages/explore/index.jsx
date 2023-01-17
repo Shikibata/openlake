@@ -40,14 +40,51 @@ export default function Index() {
           <CardItself>
             <Card as={'motion.div'} />
           </CardItself>
+          <CardItself>
+            <Card as={'motion.div'} />
+          </CardItself>
+          <CardItself>
+            <Card as={'motion.div'} />
+          </CardItself>
         </CardNew>
       </ContainerNew>
-      <ContainerTop>
+      <ContainerTop ref={carousel} whileTap={{ cursor: 'grabbing' }}>
         <h2>Most popular</h2>
-        <CardTop>
-
-      </CardTop>
-        <Card />
+        <CardTop
+          drag={'x'}
+          dragConstraints={{ right: 0, left: -width }}
+        >
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        <CardItself>
+          <Card as={'motion.div'} />
+        </CardItself>
+        </CardTop>
       </ContainerTop>
     </PrimaryLayout>
   );
@@ -58,7 +95,7 @@ const ContainerNew = styled(motion.div)`
   overflow: hidden;
   padding-top: 8rem;
   padding-left: 1rem;
-  
+
   h2 {
     text-align: center;
     font-size: 3rem;
@@ -70,15 +107,19 @@ const CardNew = styled(motion.div)`
 `;
 
 const CardItself = styled(motion.div)``;
+
 const ContainerTop = styled(motion.div)`
   cursor: grab;
   overflow: hidden;
   padding-top: 2rem;
   padding-left: 1rem;
-  
+
   h2 {
     text-align: center;
+    font-size: 3rem;
   }
 `;
 
-const CardTop = styled(motion.div)``;
+const CardTop = styled(motion.div)`
+display: flex;
+`;

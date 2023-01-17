@@ -23,7 +23,9 @@ export default function Home() {
         </Middle>
         <Right>
           <h2>Lake</h2>
-          <ButtonRightConnect><a href={"/user/signup"}>Hop on the boat</a></ButtonRightConnect>
+          <ButtonRightConnect>
+            <a href={'/user/signup'}>Hop on the boat</a>
+          </ButtonRightConnect>
         </Right>
       </Container>
     </SecondaryLayout>
@@ -62,7 +64,7 @@ const Left = styled.div`
     text-align: center;
     color: var(--fg);
     align-items: center;
-    -webkit-text-stroke: 3px var(--fg);
+    -webkit-text-stroke: 3px var(--bg);
     paint-order: stroke fill;
   }
 
@@ -71,10 +73,11 @@ const Left = styled.div`
     align-items: center;
 
     h2 {
-      z-index: 0;
+      z-index: 1000;
       width: 100%;
       font-size: 20vw;
       text-align: right;
+      transform: rotate(-3deg);
     }
   }
 `;
@@ -86,13 +89,16 @@ const SmallTextLeft = styled.div`
   right: 0%;
   top: 15%;
   transform: rotate(-5deg);
-  
+
+  p {
+    font-size: 1.3em;
+  }
+
   @media (min-width: 1024px) {
-    top: 20%;
+    top: 15%;
     right: 60%;
   }
 `;
-
 
 const Middle = styled.div`
   img {
@@ -126,7 +132,7 @@ const Right = styled.div`
     font-size: 10em;
     text-align: center;
     color: var(--fg);
-    -webkit-text-stroke: 3px var(--fg);
+    -webkit-text-stroke: 3px var(--bg);
     align-items: center;
   }
 
@@ -140,6 +146,7 @@ const Right = styled.div`
       width: 100%;
       font-size: 20vw;
       text-align: left;
+      transform: rotate(3deg);
     }
   }
 `;
@@ -148,13 +155,12 @@ const ButtonRightConnect = styled.div`
   display: flex;
   position: absolute;
   top: 80%;
-  
-  
+
   @media (min-width: 1024px) {
     left: 70%;
     width: 100%;
   }
-  
+
   a {
     padding: 0.6rem 1rem;
     border-radius: 10px;
@@ -162,5 +168,4 @@ const ButtonRightConnect = styled.div`
     color: var(--bg);
     border: 1px solid var(--fading-bg);
   }
-
 `;
