@@ -39,6 +39,7 @@ app.use('/users', require('./routes/userRoutes'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/wire', require('./routes/wireRoutes'))
 app.use('/nft', require('./routes/nftRoutes'))
+app.use('/openTrade', require('./routes/openTradeRoutes'))
 
 app.all('*', (req,res) => {
     res.status(404)

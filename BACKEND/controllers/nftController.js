@@ -2,6 +2,18 @@ const asyncHandler = require('express-async-handler')
 const NFT = require('../models/NFT')
 
 
+//@desc Get all NFT
+//@route GET /NFT
+//@access Private
+const getAllNFTs = asyncHandler(async (req,res) => {
+    const NFTs = await NFT.find().lean()
+    if(!NFTs?.length){
+        return res.status(400).json({message: 'No NFT found'})
+    }
+    res.json(NFTs)
+})
+
+//create for test POST
 const create = asyncHandler(async (req,res) => {
         const { title, creator, price, image } = req.body
 
@@ -25,4 +37,4 @@ const create = asyncHandler(async (req,res) => {
     res.json({message: `${createdNFT.title} created`})
 })
 
-module.exports = {create}
+module.exports = {create, getAllNFTs}

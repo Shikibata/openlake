@@ -1,9 +1,4 @@
-const User = require('../models/User')
 const asyncHandler = require('express-async-handler')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const { json } = require('express')
-const jwt_decode = require("jwt-decode")
 const Profile = require('../models/Profile')
 const Wire = require('../models/Wire')
 

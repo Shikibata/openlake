@@ -7,6 +7,11 @@ const tradeSchema = new mongoose.Schema({
         required: true,
         ref: 'NFT'
     },
+    profile_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Profile'
+    },
     open_price: {
         type: Number,
         required: true,

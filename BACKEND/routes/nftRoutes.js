@@ -5,6 +5,7 @@ const nftController = require('../controllers/nftController')
 
 
 router.route('/')
+    .get(nftController.getAllNFTs)
     .post(nftController.create)
     
 
