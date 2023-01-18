@@ -1,10 +1,19 @@
-import Image from 'next/image';
-import Link from 'next/link';
+
 import { useRouter } from 'next/router';
 import SecondaryLayout from '../components/layouts/secondary/SecondaryLayout';
 import styled from '@emotion/styled';
+import {useEffect} from "react";
+import axios from "axios";
 export default function Home() {
   const { locale } = useRouter();
+
+  const fetchCards = async () => {
+    const data = await axios.get('http://localhost:3500/nft')
+    console.log(data);
+  }
+  useEffect( () => {
+    fetchCards();
+  })
 
   return (
     <SecondaryLayout>
@@ -134,6 +143,7 @@ const Right = styled.div`
     color: var(--fg);
     -webkit-text-stroke: 3px var(--bg);
     align-items: center;
+    paint-order: stroke fill;
   }
 
   @media (min-width: 1024px) {
@@ -141,7 +151,6 @@ const Right = styled.div`
     align-items: center;
 
     h2 {
-      paint-order: stroke fill;
       z-index: 999;
       width: 100%;
       font-size: 20vw;

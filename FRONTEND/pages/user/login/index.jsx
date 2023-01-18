@@ -2,14 +2,22 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
 import Theme from '../../../components/navigation/header/Theme';
+import {useEffect, useRef, useState} from "react";
 
 export default function Index() {
+
+  const userRef = useRef()
+  const errRef = useRef()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
   const Form = () => {
     return (
-      <FormContainer method={'POST'} action={''}>
-        <label htmlFor="username">Username</label>
-        <input type="text" id="username" name="username" />
-        <label htmlFor="paswword">Password</label>
+      <FormContainer method={'POST'} value={email}>
+        <label htmlFor="email">Email</label>
+        <input type="email" id="email" name="email" />
+        <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
         <button type="submit">Login</button>
         <a href={'/user/signup'}>Don't have an account already ?</a>

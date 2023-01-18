@@ -20,7 +20,7 @@ const getAllUsers = asyncHandler(async (req,res) => {
 //@access Private
 const createNewUser = asyncHandler(async (req,res) => {
     const { email, password, firstName, lastName, address } = req.body
-
+    console.log(req)
     //Confirm data
     if(!email || !password) {
         return res.status(400).json( {message: 'All fields are required.'})

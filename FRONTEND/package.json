@@ -2,6 +2,7 @@
   "name": "openlake",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,6 +17,7 @@
     "@emotion/styled": "11.10.5",
     "@heroicons/react": "^1.0.6",
     "@next/font": "13.1.1",
+    "axios": "^1.2.3",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
     "eslint-config-prettier": "^8.6.0",
@@ -26,6 +28,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-redux": "^8.0.5",
     "zustand": "^4.3.1"
   },
   "devDependencies": {

@@ -1,20 +1,63 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
+import axios from "axios";
+import {useEffect, useState} from "react";
 
 export default function Index() {
+
+  const [user, setUser] = useState([]);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [address, setAddress] = useState('');
+
+
+  const handleSubmit = (e) => {
+    setEmail("loic@gmail.com")
+    console.log(email);
+    fetch('http://localhost:3500/users', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        lastName: lastName,
+        firstName: firstName,
+        address: address,
+      }),
+      headers: {
+        'Content-type': 'application/json;',
+      },
+    })
+        .then((res) => res.json())
+        .then((user) => {
+          setUser((users) => [user, ...users]);
+          setEmail();
+          setPassword();
+          setLastName('');
+          setFirstName('');
+          setAddress('');
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+  };
+
   const Form = () => {
     return (
-      <FormContainer method={'POST'} action={''}>
-        <label htmlFor="username">Username</label>
-        <input type="text" id="username" name="username" />
+      <FormContainer method={'POST'} action={'http://localhost:3500/users'}>
+        <label htmlFor="firstName">firstName</label>
+        <input type="text" id="firstName" name="firstName" />
+        <label htmlFor="lastName">Lastname</label>
+        <input type="text" id="lastName" name="lastName" />
+        <label htmlFor="address">Address</label>
+        <input type="text" id="address" name="address" />
         <label htmlFor="email">Email</label>
         <input type="email" id="email" name="email" />
         <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
-        <label htmlFor="password_verif">Password verification</label>
-        <input type="password" id="password_verif" name="password_verif" />
-        <button type="submit">Sign up</button>
+        <button type="submit" onClick={handleSubmit}>Sign up</button>
         <a href={'/user/login'}>Already have an account ?</a>
       </FormContainer>
     );
