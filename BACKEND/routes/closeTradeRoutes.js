@@ -5,7 +5,7 @@ const tradeController = require('../controllers/tradeController')
 
 
 router.route('/')
-    .post(tradeController.create)
+    .post(tradeController.close)
     
 
 

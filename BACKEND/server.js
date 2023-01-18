@@ -40,6 +40,11 @@ app.use('/auth', require('./routes/authRoutes'))
 app.use('/wire', require('./routes/wireRoutes'))
 app.use('/nft', require('./routes/nftRoutes'))
 app.use('/openTrade', require('./routes/openTradeRoutes'))
+app.use('/closeTrade', require('./routes/closeTradeRoutes'))
+app.use('/index', require('./routes/tradesRoutes'))
+app.use('/closedPNL', require('./routes/closedPNLRoutes'))
+app.use('/openPNL', require('./routes/openPNLRoutes'))
+app.use('/currentBalance', require('./routes/currentBalanceRoutes'))
 
 app.all('*', (req,res) => {
     res.status(404)

@@ -1,11 +1,11 @@
 const express = require("express") ;
 const router = express.Router()
-const tradeController = require('../controllers/tradeController')
+const wireController = require('../controllers/wireController')
 
 
 
 router.route('/')
-    .post(tradeController.create)
+    .get(wireController.getBalance)
     
 
 
