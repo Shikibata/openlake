@@ -17,6 +17,11 @@ const nftSchema = new mongoose.Schema({
     image: {
         type: String,
         required: true
+    },
+    profile_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        default: null,
+        ref: 'Profile'
     }
 
 })

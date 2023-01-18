@@ -1,7 +1,7 @@
 {
-  "name": "hogwartschallenge",
+  "name": "nfttradingapp",
   "version": "1.0.0",
-  "description": "Hogwarts",
+  "description": "Trading app",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -10,15 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaximeHoll/hogwartsChallenge.git"
+    "url": "git+https://github.com/Shikibata/openlake.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MaximeHoll/hogwartsChallenge/issues"
-  },
-  "homepage": "https://github.com/MaximeHoll/hogwartsChallenge#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
