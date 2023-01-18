@@ -10,7 +10,10 @@ const getAllNFTs = asyncHandler(async (req,res) => {
     if(!NFTs?.length){
         return res.status(400).json({message: 'No NFT found'})
     }
-    res.json(NFTs)
+    const fivePopular = await NFT.find().sort().limit(5).exec()
+    const fiveNewest = await NFT.find().limit(5).exec()
+
+    res.json({NFTs, fiveNewest, fivePopular})
 })
 
 //create for test POST
