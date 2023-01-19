@@ -36,6 +36,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/root'))
 
 app.use('/users', require('./routes/userRoutes'))
+app.use('/profile', require('./routes/profileRoutes'))
 app.use('/auth', require('./routes/authRoutes'))
 app.use('/wire', require('./routes/wireRoutes'))
 app.use('/explore', require('./routes/nftRoutes'))

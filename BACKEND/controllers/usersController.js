@@ -14,6 +14,19 @@ const getAllUsers = asyncHandler(async (req,res) => {
     res.json(users)
 })
 
+//@desc Get user and profile for one user
+//@route GET /profile
+//@access Private
+const getUser = asyncHandler(async (req,res) => {
+    const { email } = req.body
+    const user = await User.findOne({ "email": email }).select('-password').exec()
+    const profile = await Profile.findOne({ "user_id": user._id }).select('-password').exec()
+
+    if(!user){
+        return res.status(400).json({message: 'No user found'})
+    }
+    res.json({user, profile})
+})
 
 //@desc Create user
 //@route POST /users
@@ -147,7 +160,8 @@ module.exports = {
     getAllUsers,
     createNewUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUser
 }
 
 
