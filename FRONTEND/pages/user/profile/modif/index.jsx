@@ -1,31 +1,31 @@
-import styled from "@emotion/styled";
-import PrimaryLayout from "../../../../components/layouts/primary/PrimaryLayout";
+import styled from '@emotion/styled';
+import PrimaryLayout from '../../../../components/layouts/primary/PrimaryLayout';
 
 export default function Index() {
-    return (
-        <PrimaryLayout>
-        <Container>
+  return (
+    <PrimaryLayout>
+      <Container>
         <FormContainer method={'POST'} action={''}>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" name="username" />
-            <label htmlFor="firstname">Firstname</label>
-            <input type="text" id="firstname" name="firstname" />
-            <label htmlFor="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" />
-            <label htmlFor="Country">Country</label>
-            <input type="text" id="country" name="country" />
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" />
-            <button type="submit">Modify</button>
-            <a href={'/user/signup'}></a>
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" name="username" />
+          <label htmlFor="firstname">Firstname</label>
+          <input type="text" id="firstname" name="firstname" />
+          <label htmlFor="lastname">Lastname</label>
+          <input type="text" id="lastname" name="lastname" />
+          <label htmlFor="Country">Country</label>
+          <input type="text" id="country" name="country" />
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" name="password" />
+          <button type="submit">Modify</button>
+          <a href={'/user/signup'}></a>
         </FormContainer>
-        </Container>
-        </PrimaryLayout>
-    );
+      </Container>
+    </PrimaryLayout>
+  );
 }
 
 const Container = styled.div`
-    padding-top:  10rem;
+  padding-top: 10rem;
 `;
 
 const FormContainer = styled.form`

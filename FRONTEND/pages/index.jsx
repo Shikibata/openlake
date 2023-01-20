@@ -1,19 +1,10 @@
-
 import { useRouter } from 'next/router';
 import SecondaryLayout from '../components/layouts/secondary/SecondaryLayout';
 import styled from '@emotion/styled';
-import {useEffect} from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 export default function Home() {
   const { locale } = useRouter();
-
-  const fetchCards = async () => {
-    const data = await axios.get('http://localhost:3500/nft')
-    console.log(data);
-  }
-  useEffect( () => {
-    fetchCards();
-  })
 
   return (
     <SecondaryLayout>
@@ -27,6 +18,7 @@ export default function Home() {
             </p>
           </SmallTextLeft>
         </Left>
+
         <Middle>
           <img src={'./assets/vagabond-min.png'} />
         </Middle>

@@ -3,15 +3,15 @@ import Image from 'next/image';
 import { FaEthereum } from 'react-icons/fa';
 import axios from "axios";
 import {useEffect, useState} from "react";
-export default function Card() {
+export default function CardPopular() {
 
-  const [nft, setNft] = useState([]);
+  const [popular, setPopular] = useState([]);
 
 
   const fetchCards = async () => {
     const data = await axios.get('http://localhost:3500/explore')
 
-    setNft(data.data.NFTs);
+    setPopular(data.data.fiveNewest);
   }
   useEffect( () => {
     fetchCards();
@@ -19,7 +19,7 @@ export default function Card() {
 
   const mapCardPopular = () => {
     return (
-        nft.map((nfti, id) => (
+        popular.map((nfti, id) => (
             <Container key={id}>
               <CardTop>
                 <Hidden>

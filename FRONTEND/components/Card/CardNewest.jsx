@@ -3,23 +3,23 @@ import Image from 'next/image';
 import { FaEthereum } from 'react-icons/fa';
 import axios from "axios";
 import {useEffect, useState} from "react";
-export default function Card() {
+export default function CardNewest() {
 
-  const [nft, setNft] = useState([]);
+  const [newest, setNewest] = useState([]);
 
 
   const fetchCards = async () => {
     const data = await axios.get('http://localhost:3500/explore')
 
-    setNft(data.data.NFTs);
+    setNewest(data.data.fiveNewest);
   }
   useEffect( () => {
     fetchCards();
   })
 
-  const mapCardPopular = () => {
+  const mapCardNewest = () => {
     return (
-        nft.map((nfti, id) => (
+        newest.map((nfti, id) => (
             <Container key={id}>
               <CardTop>
                 <Hidden>
@@ -42,7 +42,7 @@ export default function Card() {
 
   return (
       <ContainerAll>
-        {mapCardPopular()}
+        {mapCardNewest()}
       </ContainerAll>
   )
 }

@@ -1,64 +1,88 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
-import axios from "axios";
-import {useEffect, useState} from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Index() {
-
-  const [user, setUser] = useState([]);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [address, setAddress] = useState('');
-
-
-  const handleSubmit = (e) => {
-    setEmail("loic@gmail.com")
-    console.log(email);
-    fetch('http://localhost:3500/users', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        lastName: lastName,
-        firstName: firstName,
-        address: address,
-      }),
-      headers: {
-        'Content-type': 'application/json;',
-      },
-    })
-        .then((res) => res.json())
-        .then((user) => {
-          setUser((users) => [user, ...users]);
-          setEmail();
-          setPassword();
-          setLastName('');
-          setFirstName('');
-          setAddress('');
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-  };
-
   const Form = () => {
+    const [user, setUser] = useState([]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [address, setAddress] = useState('');
+    const [register, setRegister] = useState(false);
+
+    const configuration = {
+      method: 'post',
+      url: 'http://localhost:3500/users',
+      data: {
+        email,
+        password,
+        lastName,
+        firstName,
+        address,
+      },
+    };
+    const handleSubmit = (e) => {
+      // prevent the form from refreshing the whole page
+      axios(configuration)
+        .then((result) => {
+          setRegister(true);
+        })
+        .catch((error) => {
+          error = new Error();
+        });
+      this.props.history.push('/');
+    };
+
     return (
-      <FormContainer method={'POST'} action={'http://localhost:3500/users'}>
+      <FormContainer method={'post'}>
         <label htmlFor="firstName">firstName</label>
-        <input type="text" id="firstName" name="firstName" />
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
         <label htmlFor="lastName">Lastname</label>
-        <input type="text" id="lastName" name="lastName" />
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          onChange={(e) => setLastName(e.target.value)}
+        />
         <label htmlFor="address">Address</label>
-        <input type="text" id="address" name="address" />
+        <input
+          type="text"
+          id="address"
+          name="address"
+          onChange={(e) => setAddress(e.target.value)}
+        />
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button type="submit" onClick={handleSubmit}>Sign up</button>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          Sign up
+        </button>
         <a href={'/user/login'}>Already have an account ?</a>
+        {register ? (
+          <p className="text-success">You Are Registered Successfully</p>
+        ) : (
+          <p className="text-danger">You Are Not Registered</p>
+        )}
       </FormContainer>
     );
   };

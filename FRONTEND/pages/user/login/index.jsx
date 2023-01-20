@@ -2,25 +2,65 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
 import Theme from '../../../components/navigation/header/Theme';
-import {useEffect, useRef, useState} from "react";
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function Index() {
-
-  const userRef = useRef()
-  const errRef = useRef()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-
   const Form = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [login, setLogin] = useState(false);
+
+    const configuration = {
+      method: 'post',
+      url: 'http://localhost:3500/auth',
+      data: {
+        email,
+        password,
+      },
+      withCredentials: true,
+    };
+    const handleSubmit = (e) => {
+      // prevent the form from refreshing the whole page
+      e.preventDefault();
+      axios(configuration)
+        .then((result) => {
+          setLogin(true);
+        })
+        .catch((error) => {
+          console.log(error.response, email, password);
+        });
+    };
+
     return (
-      <FormContainer method={'POST'} value={email}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
+      <FormContainer>
+        <label htmlFor="email" onSubmit={(e) => handleSubmit(e)}>
+          Email{' '}
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button type="submit">Login</button>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit" onClick={(e) => handleSubmit(e)}>
+          Login
+        </button>
         <a href={'/user/signup'}>Don't have an account already ?</a>
+        {login ? (
+          <p className="text-success">You Are Logged in Successfully</p>
+        ) : (
+          <p className="text-danger">You Are Not Logged in</p>
+        )}
       </FormContainer>
     );
   };
