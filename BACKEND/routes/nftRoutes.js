@@ -9,6 +9,7 @@ router.route('/')
     .post(nftController.create)
     
 
-
+router.route('/:id')
+    .get(nftController.getNFT)
 
 module.exports = router
