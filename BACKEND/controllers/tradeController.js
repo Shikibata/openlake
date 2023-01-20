@@ -2,18 +2,22 @@ const asyncHandler = require('express-async-handler')
 const Profile = require('../models/Profile')
 const Trade = require('../models/Trade')
 const NFT = require('../models/NFT')
+const jwt_decode = require("jwt-decode")
 
 //opening trade POST /openTrade
 
 const create = asyncHandler(async (req,res) => {
-    const { nft, profile_id } = req.body
+    const nft  = req.params.id
+    const cookies = req.cookies
+    const token = cookies.jwt
+    const data = jwt_decode(token)
 
     if(!nft || !profile_id){
         return res.status(400).json({ message: 'Profile ID, NFT required.'})
     }
 
-    const profile = await Profile.findOne({'_id': profile_id }).exec()
-    const boughtNFT = await NFT.findOne({"title": nft}).exec()
+    const profile = await Profile.findOne({'_id': data.profile_id }).exec()
+    const boughtNFT = await NFT.findOne({"_id": nft}).exec()
 
     if(boughtNFT.profile_id) {
         return res.status(400).json({ message: 'Item not available, please choose another.'})

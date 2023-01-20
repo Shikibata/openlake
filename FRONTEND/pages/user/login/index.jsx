@@ -20,11 +20,15 @@ export default function Index() {
       },
       withCredentials: true,
     };
+
+    
     const handleSubmit = (e) => {
       // prevent the form from refreshing the whole page
       e.preventDefault();
       axios(configuration)
         .then((result) => {
+          const id = result.data.data.UserInfo.profile_id
+          localStorage.setItem("profile_id", `${id}`);
           setLogin(true);
         })
         .catch((error) => {

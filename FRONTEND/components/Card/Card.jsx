@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaEthereum } from 'react-icons/fa';
 import axios from "axios";
 import {useEffect, useState} from "react";
@@ -20,7 +21,7 @@ export default function Card() {
   const mapCardPopular = () => {
     return (
         nft.map((nfti, id) => (
-            <Container key={id}>
+            <Container key={id} href="explore/id">
               <CardTop>
                 <Hidden>
                   <NameNft>{nfti.name}</NameNft>
@@ -36,7 +37,10 @@ export default function Card() {
                   {nfti.price} ETH
                 </Price>
               </CardBottom>
+              <Link href="explore/id">see more</Link>
+
             </Container>
+            
         ))
     )
   }
@@ -44,6 +48,7 @@ export default function Card() {
   return (
       <ContainerAll>
         {mapCardPopular()}
+      
       </ContainerAll>
   )
 }
@@ -107,6 +112,12 @@ const CardBottom = styled.div`
   align-items: baseline;
   justify-content: space-between;
   padding: 1rem 1rem;
+
+  a { 
+    cursor : pointer; 
+    z-index: 9999;
+    color: red;   
+  }
 `;
 
 const Creator = styled.div``;
