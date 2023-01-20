@@ -2,11 +2,13 @@ import PrimaryLayout from '../../../components/layouts/primary/PrimaryLayout';
 import styled from '@emotion/styled';
 
 export default function Index() {
+
   return (
     <PrimaryLayout>
       <ProfileContainer>
         <Infos>
           <div>
+            <p></p>
             <h4>Username:</h4>
             <span>Pussiner</span>
           </div>
