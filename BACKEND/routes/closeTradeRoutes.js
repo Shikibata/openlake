@@ -4,7 +4,7 @@ const tradeController = require('../controllers/tradeController')
 
 
 
-router.route('/')
+router.route('/:id')
     .post(tradeController.close)
     
 

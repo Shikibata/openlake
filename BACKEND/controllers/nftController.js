@@ -7,13 +7,13 @@ const NFT = require('../models/NFT')
 //@access Private
 const getNFT = asyncHandler(async (req,res) => {
     const id = req.params.id
+   
     if(!id){
         return res.status(400).json({message: 'No NFT found.'})
     }
-    const NFT = await NFT.findByID(id).exec()
-    
+    const singleNFT = await NFT.findById(id).exec()
 
-    res.json(NFT)
+    res.json(singleNFT)
 })
 
 //@desc Get all NFT
