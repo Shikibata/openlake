@@ -2,13 +2,27 @@ const asyncHandler = require('express-async-handler')
 const NFT = require('../models/NFT')
 
 
+//@desc Get one NFT
+//@route GET /explore/:id
+//@access Private
+const getNFT = asyncHandler(async (req,res) => {
+    const id = req.params.id
+    if(!id){
+        return res.status(400).json({message: 'No NFT found.'})
+    }
+    const NFT = await NFT.findByID(id).exec()
+    
+
+    res.json(NFT)
+})
+
 //@desc Get all NFT
-//@route GET /NFT
+//@route GET /explore
 //@access Private
 const getAllNFTs = asyncHandler(async (req,res) => {
     const NFTs = await NFT.find().lean()
     if(!NFTs?.length){
-        return res.status(400).json({message: 'No NFT found'})
+        return res.status(400).json({message: 'No NFT found.'})
     }
     const fivePopular = await NFT.find().sort().limit(5).exec()
     const fiveNewest = await NFT.find().limit(5).exec()
@@ -40,4 +54,8 @@ const create = asyncHandler(async (req,res) => {
     res.json({message: `${createdNFT.title} created`})
 })
 
-module.exports = {create, getAllNFTs}
+module.exports = {
+    create, 
+    getAllNFTs,
+    getNFT
+}
