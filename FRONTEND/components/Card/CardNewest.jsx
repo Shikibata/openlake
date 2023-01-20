@@ -30,6 +30,7 @@ export default function CardNewest() {
               </CardTop>
               <CardBottom>
                 <Creator>{nfti.creator}</Creator>
+                <Creator>{nfti.title}</Creator>
                 <Price>
                   <FaEthereum />
                   {nfti.price} ETH

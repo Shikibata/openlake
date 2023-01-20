@@ -33,6 +33,7 @@ const getAllNFTs = asyncHandler(async (req,res) => {
 //create for test POST
 const create = asyncHandler(async (req,res) => {
         const { title, creator, price, image } = req.body
+        const date = new Date()
 
          //Confirm data
     if(!title || !creator || !price ||!image) {
@@ -47,15 +48,34 @@ const create = asyncHandler(async (req,res) => {
         return res.status(409).json({ message: 'Duplicate NFT' })
     }
 
-    const nftObject = { title, creator, price, image }
+    const nftObject = { title, creator, price, image, "created_date": date }
 
     const createdNFT = await NFT.create(nftObject)
 
     res.json({message: `${createdNFT.title} created`})
 })
 
+const deleteNFT = asyncHandler(async (req,res) => {
+    const { title } = req.body
+    if(!title ) {
+        return res.status(400).json( {message: 'All fields are required.'})
+    }
+
+    const deletedNFT= await NFT.findOne({title}).exec()
+
+    await deletedNFT.remove()
+    const reply = `NFT ${deletedNFT.title} deleted`
+
+    res.json(reply)
+
+})
+
 module.exports = {
     create, 
     getAllNFTs,
-    getNFT
+    getNFT,
+    deleteNFT
 }
+
+//delete DELETE
+

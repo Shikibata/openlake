@@ -22,6 +22,10 @@ const nftSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         default: null,
         ref: 'Profile'
+    },
+    created_date: {
+        type: Date,
+        required: true
     }
 
 })
