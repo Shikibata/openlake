@@ -4,14 +4,10 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import BuySingleCard from '../../components/Card/singleCard';
 
-
-
 export default function BuySingleCard() {
-    return (
-
-        <PrimaryLayout>
-            <SingleCard/>
-        </PrimaryLayout>
-    )
-
+  return (
+    <PrimaryLayout>
+      <SingleCard />
+    </PrimaryLayout>
+  );
 }

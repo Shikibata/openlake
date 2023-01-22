@@ -1,97 +1,85 @@
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
-import CardNewest from "../../components/Card/CardNewest";
-import CardPopular from "../../components/Card/CardPopular";
-export default function Index() {
-  const [width, setWidth] = useState(0);
-  const carousel = useRef();
+import CardNewest from '../../components/Card/CardNewest';
+import CardPopular from '../../components/Card/CardPopular';
 
-  useEffect(() => {
-    setWidth(carousel.current.scrollWidth / 2);
-  }, []);
+export default function Index() {
   return (
     <PrimaryLayout>
-      <ContainerNew ref={carousel} whileTap={{ cursor: 'grabbing' }}>
+      <ContainerNew>
         <h2>Newest</h2>
-        <CardNew drag={'x'} dragConstraints={{ right: 0, left: -width }}>
+        <CardNew>
           <CardItself>
-            <CardNewest as={'motion.div'} />
+            <CardNewest />
           </CardItself>
         </CardNew>
       </ContainerNew>
-      <ContainerTop ref={carousel} whileTap={{ cursor: 'grabbing' }}>
+      <ContainerTop>
         <h2>Hottest</h2>
-        <CardTop drag={'x'} dragConstraints={{ right: 0, left: -width }}>
+        <CardTop>
           <CardItself>
-            <CardPopular as={'motion.div'} />
+            <CardPopular />
           </CardItself>
         </CardTop>
       </ContainerTop>
-      <ContainerIndex ref={carousel} whileTap={{ cursor: 'grabbing' }}>
+      <ContainerIndex>
         <h2>Index</h2>
-        <CardIndex  drag={'x'} dragConstraints={{ right: 0, left: -width }}>
+        <CardIndex>
           <CardItself>
-            <Card as={'motion.div'} />
+            <Card />
           </CardItself>
         </CardIndex>
       </ContainerIndex>
-
     </PrimaryLayout>
   );
 }
 
 const ContainerIndex = styled(motion.div)`
-  cursor: grab;
-  overflow: hidden;
   padding-bottom: 5rem;
-  padding-left: 1rem;
 
   h2 {
     text-align: center;
     font-size: 3rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
 const CardIndex = styled(motion.div)`
   display: flex;
+  justify-content: center;
 `;
 
-
-
 const ContainerNew = styled(motion.div)`
-  cursor: grab;
-  overflow: hidden;
   padding-top: 5rem;
-  padding-left: 1rem;
 
   h2 {
     text-align: center;
     font-size: 3rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
 const CardNew = styled(motion.div)`
   display: flex;
+  justify-content: center;
 `;
 
 const CardItself = styled(motion.div)``;
 
 const ContainerTop = styled(motion.div)`
-  cursor: grab;
-  overflow: hidden;
-  padding-top: 2rem;
-  padding-left: 1rem;
+  padding-top: 1rem;
 
   h2 {
     text-align: center;
     font-size: 3rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
 const CardTop = styled(motion.div)`
   display: flex;
   margin-bottom: 5rem;
+  justify-content: center;
 `;

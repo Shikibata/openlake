@@ -93,7 +93,7 @@ const Nav = styled.nav`
   height: 70px;
   justify-content: space-between;
   padding: 5px 2rem;
-  background-color: transparent;
+  background-color: var(--bg);
   position: fixed;
   z-index: 99;
 `;
@@ -117,12 +117,18 @@ const NavMenuBar = styled.div`
 const NavMenuElements = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
   position: fixed;
   top: 60px;
   width: 288px;
+  height: 25%;
   row-gap: 24px;
   right: -288px;
   padding: 24px 16px;
+  border-radius: 10px;
+  background-color: var(--bg);
+  transition: all ease-in 300ms;
 
   @media (min-width: 768px) {
     position: unset;
@@ -132,6 +138,7 @@ const NavMenuElements = styled.div`
     column-gap: 24px;
     align-items: center;
     width: 100%;
+    margin-top: 0;
   }
 `;
 

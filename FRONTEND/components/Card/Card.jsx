@@ -2,82 +2,93 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaEthereum } from 'react-icons/fa';
-import axios from "axios";
-import {useEffect, useState} from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 export default function Card() {
-
   const [nft, setNft] = useState([]);
-
-
   const fetchCards = async () => {
-    const data = await axios.get('http://localhost:3500/explore')
+    const data = await axios.get('http://localhost:3500/explore');
 
     setNft(data.data.NFTs);
-  }
-  useEffect( () => {
+  };
+  useEffect(() => {
     fetchCards();
-  })
+  });
 
   const mapCardPopular = () => {
-    return (
-        nft.map((nfti, id) => (
-            <Container key={id} href="explore/id">
-              <CardTop>
-                <Hidden>
-                  <NameNft>{nfti.name}</NameNft>
-                  <NameArt>{nfti.name}</NameArt>
-                </Hidden>
-                <ImageHolder style={{backgroundImage: `url(${nfti.image})`}} />
-              </CardTop>
-              <CardBottom>
-                <Creator>{nfti.creator}</Creator>
-                <Creator>{nfti.title}</Creator>
-                <Price>
-                  <FaEthereum />
-                  {nfti.price} ETH
-                </Price>
-              </CardBottom>
-              <Link href="explore/id">see more</Link>
+    return nft.map((nfti, id) => (
+      <Container key={id} href="explore/id">
+        <CardTop>
+          <Hidden>
+            <NameNft>{nfti.name}</NameNft>
+            <NameArt>{nfti.name}</NameArt>
+          </Hidden>
+          <ClickHolder href={`explore/${nfti._id}`}>
+            <ImageHolder
+                style={{ backgroundImage: `url(${nfti.image})` }}
+            />
+          </ClickHolder>        </CardTop>
+        <CardBottom>
+          <Creator>{nfti.creator}</Creator>
+          <Creator>{nfti.title}</Creator>
+          <Price>
+            <FaEthereum />
+            {nfti.price} ETH
+          </Price>
+        </CardBottom>
+      </Container>
+    ));
+  };
 
-            </Container>
-            
-        ))
-    )
-  }
-
-  return (
-      <ContainerAll>
-        {mapCardPopular()}
-      
-      </ContainerAll>
-  )
+  return <ContainerAll>{mapCardPopular()}</ContainerAll>;
 }
 
 const ContainerAll = styled.div`
-display: flex;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  @media (min-width: 540px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 780px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 240px;
   height: 360px;
-  margin: 20px;
-  pointer-events: none;
+  min-width: 100vw;
+  margin-top: 50px;
+
+  @media (min-width: 540px) {
+    min-width: 240px;
+  }
 `;
+
+const ClickHolder = styled.a``;
 
 const ImageHolder = styled.div`
   border-radius: 10px 10px 0px 0px;
   position: relative;
   bottom: 242px;
-  right: 10px;
   z-index: 0;
   height: 252px;
-  width: 240px;
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-clip: border-box;
   background-position: center center;
+
+  @media (min-width: 540px) {
+    width: 240px;
+    right: 20px;
+  }
 
   :hover {
     opacity: 0.65;
@@ -112,11 +123,17 @@ const CardBottom = styled.div`
   align-items: baseline;
   justify-content: space-between;
   padding: 1rem 1rem;
+  width: 100%;
+  margin: 0px 10px;
 
-  a { 
-    cursor : pointer; 
+  @media (min-width: 540px) {
+    width: 240px;
+    margin-left: -10px;
+  }
+  a {
+    cursor: pointer;
     z-index: 9999;
-    color: red;   
+    color: red;
   }
 `;
 

@@ -2,7 +2,6 @@ import PrimaryLayout from '../../../components/layouts/primary/PrimaryLayout';
 import styled from '@emotion/styled';
 
 export default function Index() {
-
   return (
     <PrimaryLayout>
       <ProfileContainer>
