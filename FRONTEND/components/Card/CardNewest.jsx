@@ -118,7 +118,7 @@ const Container = styled.a`
   margin: 20px;
 `;
 
-const ClickHolder = styled.a``;
+const ClickHolder = styled(Link)``;
 
 const ImageHolder = styled.div`
   border-radius: 10px 10px 0px 0px;

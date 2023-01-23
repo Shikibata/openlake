@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Link from "next/link";
 export default function CardPopular() {
   const [popular, setPopular] = useState([]);
 
@@ -113,7 +114,7 @@ const Container = styled.div`
   margin: 20px;
 `;
 
-const ClickHolder = styled.a``;
+const ClickHolder = styled(Link)``;
 
 const ImageHolder = styled.div`
   border-radius: 10px 10px 0px 0px;
