@@ -33,22 +33,19 @@ const Feeter = styled.footer`
   display: flex;
   flex-flow: row wrap;
   text-align: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  vertical-align: inherit;
   max-width: 100%;
   flex-shrink: 0;
   flex-direction: column;
   flex-basis: auto;
-  display: flex;
   -webkit-box-align: stretch;
   align-items: stretch;
-  position: relative;
-  width: 100%;
+  position: sticky;
   bottom: 0;
+  left: 0;
+  width: 100%;
   background-color: var(--bg);
+  margin-top: auto;
+  z-index: 1
 `;
 
 const Span = styled.span`
