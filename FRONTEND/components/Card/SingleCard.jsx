@@ -12,12 +12,12 @@ export default function SingleCard() {
   const router = useRouter();
   const _id = router.query
   console.log(_id);
-  let loggedUserID;
+//   let loggedUserID;
 
-  useEffect(() => {
-    // Perform localStorage action
-    loggedUserID = localStorage.getItem('profile_id');
-  }, []);
+//   useEffect(() => {
+//     // Perform localStorage action
+//     loggedUserID = localStorage.getItem('profile_id');
+//   }, []);
 
   const fetchCard = async () => {
     const data = await axios.get(`http://localhost:3500/explore/${_id}`);
@@ -45,11 +45,11 @@ export default function SingleCard() {
       <span>{nft.price}</span>
       <br />
       {nft.profile_id === loggedUserID ? (
-        <Link href={{ pathname: `/closeTrade/`, query: { id: _id } }}>
+        <Link href={{ pathname: `/closeTrade/${nft._id}`, query: { id: _id } }}>
           Sell
         </Link>
       ) : (
-        <Link href={{ pathname: `/openTrade/`, query: { id: _id } }}>Buy</Link>
+        <Link href={{ pathname: `/openTrade/${nft._id}`, query: { id: _id } }}>Buy</Link>
       )}
     </div>
   );
