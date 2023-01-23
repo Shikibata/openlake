@@ -10,7 +10,7 @@ export default function SingleCard() {
   const [nft, setNft] = useState([]);
   const [profile, setProfile] = useState([]);
   const router = useRouter();
-  const _id = router.query
+  const _id = router.query.id
   console.log(_id);
   let loggedUserID;
 
