@@ -17,17 +17,15 @@ export default function SingleCard() {
   useEffect(() => {
     // Perform localStorage action
     loggedUserID = localStorage.getItem('profile_id');
+    console.log("logged " +loggedUserID);
   }, []);
-
   const fetchCard = async () => {
     const data = await axios.get(`http://localhost:3500/explore/${_id}`);
-
     setNft(data.data);
 
   };
-
-  useEffect(() => {
-    fetchCard();
+  useEffect(async () => {
+   await fetchCard();
   }, []);
 
   return (
