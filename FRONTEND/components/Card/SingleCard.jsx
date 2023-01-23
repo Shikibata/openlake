@@ -27,22 +27,29 @@ export default function SingleCard() {
   }, [router.isReady]);
 
   return (
-    <Container>
-      <ImageHolder>
+      <Container>
+        <ImageHolder>
           <img src={nft.image}/>
-      </ImageHolder>
-      <Infos>
-        <span>{nft.title}</span>
-        <span>{nft.creator}</span>
-        <span>{nft.price}</span>
-      </Infos>
-      {nft.profile_id == loggedUserID ? (
-        <Link href={{ pathname: `/closeTrade/[id]`, query: { id: _id } }}>
-          Sell
-        </Link>
-      ) : (
-        <Link href={{ pathname: `/openTrade/[id]`, query: { id: _id } }}>Buy</Link>
-      )}
+        </ImageHolder>
+        <Infos>
+          <InfosTop>
+            <Creator>{nft.creator}</Creator>
+            <Title>{nft.title}</Title>
+          </InfosTop>
+          <InfosBottom>
+            <Price><FaEthereum />{nft.price}</Price>
+            <BuyAndSell>
+              {nft.profile_id == loggedUserID ? (
+                  <Link href={{ pathname: `/closeTrade/[id]`, query: { id: _id } }}>
+                    Sell
+                  </Link>
+              ) : (
+                  <Link href={{ pathname: `/openTrade/[id]`, query: { id: _id } }}>Buy</Link>
+              )}
+            </BuyAndSell>
+          </InfosBottom>
+        </Infos>
+
     </Container>
   );
 }
@@ -80,14 +87,69 @@ const ImageHolder = styled.div`
   img {
     width: 90%;
     max-width: 650px;
+    border-radius: 10px;
   }
 `;
 
 const Infos = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-around;
   width: 100%;
   
   @media (min-width: 768px) {
     width: 50%;
     max-width: 800px;
+    height: 80%;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+`;
+
+const InfosTop = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 10rem;
+`;
+
+const Creator = styled.h2`
+  font-size: 2.6rem;
+`;
+
+const Title = styled.h3`
+  font-size: 1.4rem;
+`;
+
+const InfosBottom = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const Price = styled.span`
+  display: flex;
+  align-items: center;
+  font-size: 2.6rem;
+`;
+
+const BuyAndSell = styled.a`
+  font-size: 1.4rem;
+  width: 20%;
+  text-align: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  background-color: var(--bg);
+  cursor: pointer;
+  margin-bottom: 1rem;
+
+  :hover {
+    background-color: var(--main);
+    color: var(--fg);
   }
 `;
