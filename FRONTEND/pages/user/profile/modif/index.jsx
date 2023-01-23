@@ -1,11 +1,20 @@
 import styled from '@emotion/styled';
 import PrimaryLayout from '../../../../components/layouts/primary/PrimaryLayout';
+import { useRef, useState } from 'react';
 
 export default function Index() {
+
+
+
+
+
+
+
+
   return (
     <PrimaryLayout>
       <Container>
-        <FormContainer method={'POST'} action={''}>
+        <FormContainer method={'POST'} action={'/user/profile/modif'}>
           <label htmlFor="username">Username</label>
           <input type="text" id="username" name="username" />
           <label htmlFor="firstname">Firstname</label>

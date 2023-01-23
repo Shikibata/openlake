@@ -21,6 +21,7 @@ export default function SingleCard() {
 
   useEffect(() => {
     if(router.isReady){
+    setLoggedUserID(localStorage.getItem("profile_id"))
     fetchCard();}
 
   }, [router.isReady]);
