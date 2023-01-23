@@ -25,24 +25,23 @@ loggedUserID = localStorage.getItem('profile_id');
     const data = await axios.get(`http://localhost:3500/explore/${_id}`);
     setNft(data.data);
   };
+
   useEffect(() => {
-    fetchCard();
-  }, []);
+    if(router.isReady){
+    fetchCard();}
+
+  }, [router.isReady]);
 
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <span>{nft.title}</span>
-      <br />
-      <span>{nft.image}</span>
-      <br />
-      <span>{nft.creator}</span>
-      <br />
-      <span>{nft.price}</span>
-      <br />
+    <Container>
+      <ImageHolder>
+          <img src={nft.image}/>
+      </ImageHolder>
+      <Infos>
+        <span>{nft.title}</span>
+        <span>{nft.creator}</span>
+        <span>{nft.price}</span>
+      </Infos>
       {nft.profile_id === loggedUserID ? (
         <Link href={{ pathname: `/closeTrade/${nft._id}`, query: { id: _id } }}>
           Sell
@@ -50,6 +49,52 @@ loggedUserID = localStorage.getItem('profile_id');
       ) : (
         <Link href={{ pathname: `/openTrade/${nft._id}`, query: { id: _id } }}>Buy</Link>
       )}
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  padding: 5rem 1rem;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+
+  @media (min-width: 768px) {
+    padding: 5rem 1rem;
+    flex-direction: row;
+    
+  }
+`;
+
+const ImageHolder = styled.div`
+  margin-bottom: 32px;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+  
+  img {
+    width: 90%;
+    max-width: 650px;
+  }
+`;
+
+const Infos = styled.div`
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    width: 50%;
+    max-width: 800px;
+  }
+`;

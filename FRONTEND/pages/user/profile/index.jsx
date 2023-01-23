@@ -26,6 +26,7 @@ export default function Index() {
           <div>
             <h4>Balance:</h4>
             <span>25 ETH</span>
+            <a>Add Balance</a>
           </div>
         </Infos>
         <Logout>
