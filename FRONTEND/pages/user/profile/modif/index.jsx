@@ -3,6 +3,7 @@ import PrimaryLayout from '../../../../components/layouts/primary/PrimaryLayout'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Link from 'next/link';
 
 
 export default function Index() {
@@ -20,7 +21,7 @@ export default function Index() {
 
     useEffect(() => {
       // Perform localStorage action
-      set_ID(localStorage.getItem('userID'))
+      set_ID(localStorage.getItem('user_id'))
     }, [])
 
 
@@ -37,6 +38,7 @@ export default function Index() {
       },
     };
     const handleSubmit = (e) => {
+      e.preventDefault()
       // prevent the form from refreshing the whole page
       axios(configurationUpdate)
         .then((result) => {
@@ -45,7 +47,7 @@ export default function Index() {
         .catch((error) => {
           error = new Error();
         });
-      //this.props.history.push('/');
+      
     };
 
 
@@ -64,6 +66,10 @@ export default function Index() {
       .then((result) => {
         setUser(result.data.user)
         setProfile(result.data.profile)
+        setEmail(result.data.user.email)
+        setFirstName(result.data.profile.first_name)
+        setLastName(result.data.profile.last_name)
+        setAddress(result.data.profile.address)
       })
       .catch((error) => {
         error = new Error();
@@ -79,7 +85,8 @@ useEffect(() => {
   return (
     <PrimaryLayout>
       <Container>
-        <FormContainer method={'PATCH'} action={'/user/profile/modif'}>
+      {!updated?
+        <FormContainer method={'POST'} action={''}>
           <label htmlFor="username">Email</label>
           <input type="text" id="username" name="username" defaultValue={user.email} onChange={(e) => setEmail(e.target.value)}/>
           <label htmlFor="firstname">Firstname</label>
@@ -94,6 +101,7 @@ useEffect(() => {
           Modify
           </button>
         </FormContainer>
+        : <Link href="/">Profile was updated. Click to go back to homepage.</Link>}
       </Container>
     </PrimaryLayout>
   );
