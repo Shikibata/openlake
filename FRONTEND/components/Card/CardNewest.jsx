@@ -66,7 +66,7 @@ export default function CardNewest() {
                   <NameNft>{nfti.name}</NameNft>
                   <NameArt>{nfti.name}</NameArt>
                 </Hidden>
-                <ClickHolder href={`explore/${nfti._id}`}>
+                <ClickHolder href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}>
                   <ImageHolder
                     style={{ backgroundImage: `url(${nfti.image})` }}
                   />
@@ -118,7 +118,7 @@ const Container = styled.a`
   margin: 20px;
 `;
 
-const ClickHolder = styled.a``;
+const ClickHolder = styled(Link)``;
 
 const ImageHolder = styled.div`
   border-radius: 10px 10px 0px 0px;
