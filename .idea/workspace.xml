@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BACKEND/controllers/nftController.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/controllers/nftController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <workItem from="1673881353426" duration="11258000" />
       <workItem from="1673943357894" duration="4580000" />
       <workItem from="1674031051235" duration="56382000" />
-      <workItem from="1674461818668" duration="2482000" />
+      <workItem from="1674461818668" duration="3847000" />
     </task>
     <servers />
   </component>
