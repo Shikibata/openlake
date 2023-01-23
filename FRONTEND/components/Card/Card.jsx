@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaEthereum } from 'react-icons/fa';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+
 export default function Card() {
   const [nft, setNft] = useState([]);
   const fetchCards = async () => {
@@ -23,7 +24,7 @@ export default function Card() {
             <NameNft>{nfti.name}</NameNft>
             <NameArt>{nfti.name}</NameArt>
           </Hidden>
-          <ClickHolder href={{ pathname: `/explore/${nfti._id}`, query: { id: nfti._id } }}>
+          <ClickHolder href={`/explore/${nfti._id}`}>
             <ImageHolder
                 style={{ backgroundImage: `url(${nfti.image})` }}
             />

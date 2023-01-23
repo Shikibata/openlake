@@ -12,12 +12,12 @@ export default function SingleCard() {
   const router = useRouter();
   const _id = router.query
   console.log(_id);
-//   let loggedUserID;
+  let loggedUserID;
 
-//   useEffect(() => {
-//     // Perform localStorage action
-//     loggedUserID = localStorage.getItem('profile_id');
-//   }, []);
+  useEffect(() => {
+    // Perform localStorage action
+    loggedUserID = localStorage.getItem('profile_id');
+  }, []);
 
   const fetchCard = async () => {
     const data = await axios.get(`http://localhost:3500/explore/${_id}`);

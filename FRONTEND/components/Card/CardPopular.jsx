@@ -11,7 +11,7 @@ export default function CardPopular() {
   const fetchCards = async () => {
     const data = await axios.get('http://localhost:3500/explore');
 
-    setPopular(data.data.fiveNewest);
+    setPopular(data.data.fivePopular);
   };
   useEffect(() => {
     fetchCards();
@@ -63,7 +63,7 @@ export default function CardPopular() {
                   <NameNft>{nfti.name}</NameNft>
                   <NameArt>{nfti.name}</NameArt>
                 </Hidden>
-                <ClickHolder href={`explore/${nfti._id}`}>
+                <ClickHolder href={{ pathname: `/explore/${nfti._id}`, query: { id: nfti._id } }}>
                   <ImageHolder
                     style={{ backgroundImage: `url(${nfti.image})` }}
                   />

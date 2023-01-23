@@ -24,7 +24,7 @@ const getAllNFTs = asyncHandler(async (req,res) => {
     if(!NFTs?.length){
         return res.status(400).json({message: 'No NFT found.'})
     }
-    const fivePopular = await NFT.find().limit(8).exec()
+    const fivePopular = await NFT.find().sort({"title": 1}).limit(8).exec()
     const fiveNewest =  await NFT.find().sort({"created_date": -1}).limit(8).exec()
 
 

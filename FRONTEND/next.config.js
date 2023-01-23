@@ -2,7 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: false,
-  experimental: { appDir: false },
+  experimental: { appDir: true },
 };
 
 module.exports = nextConfig;
