@@ -12,13 +12,8 @@ export default function SingleCard() {
   const router = useRouter();
   const _id = router.query.id
   console.log(_id);
-  let loggedUserID;
+  const [loggedUserID, setLoggedUserID] = useState("");
 
-
-useEffect(() => {
-// Perform localStorage action
-loggedUserID = localStorage.getItem('profile_id');
-}, []);
 
 
   const fetchCard = async () => {
@@ -26,6 +21,8 @@ loggedUserID = localStorage.getItem('profile_id');
     setNft(data.data);
   };
   useEffect(() => {
+    const userID = localStorage.getItem('profile_id');
+    setLoggedUserID(userID);
     fetchCard();
   }, []);
 
@@ -42,13 +39,14 @@ loggedUserID = localStorage.getItem('profile_id');
       <span>{nft.creator}</span>
       <br />
       <span>{nft.price}</span>
+
       <br />
-      {nft.profile_id === loggedUserID ? (
-        <Link href={{ pathname: `/closeTrade/${nft._id}`, query: { id: _id } }}>
+      {nft.profile_id == loggedUserID ? (
+        <Link href={{ pathname: `/closeTrade/[id]`, query: { id: _id } }}>
           Sell
         </Link>
       ) : (
-        <Link href={{ pathname: `/openTrade/${nft._id}`, query: { id: _id } }}>Buy</Link>
+        <Link href={{ pathname: `/openTrade/[id]`, query: { id: _id } }}>Buy</Link>
       )}
     </div>
   );

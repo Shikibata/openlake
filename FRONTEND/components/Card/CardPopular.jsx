@@ -63,7 +63,7 @@ export default function CardPopular() {
                   <NameNft>{nfti.name}</NameNft>
                   <NameArt>{nfti.name}</NameArt>
                 </Hidden>
-                <ClickHolder href={{ pathname: `/explore/${nfti._id}`, query: { id: nfti._id } }}>
+                <ClickHolder href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}>
                   <ImageHolder
                     style={{ backgroundImage: `url(${nfti.image})` }}
                   />
