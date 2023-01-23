@@ -39,7 +39,7 @@ export default function Index() {
 
     return (
       <FormContainer method={'post'}>
-        <label htmlFor="firstName">firstName</label>
+        <label htmlFor="firstName">First Name</label>
         <input
           type="text"
           id="firstName"

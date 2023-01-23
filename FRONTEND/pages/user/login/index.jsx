@@ -26,8 +26,10 @@ export default function Index() {
       e.preventDefault();
       axios(configuration)
         .then((result) => {
-          const id = result.data.data.UserInfo.profile_id;
-          localStorage.setItem('profile_id', `${id}`);
+          const profileId = result.data.data.UserInfo.profile_id;
+          const userId = result.data.data.UserInfo.id;
+          localStorage.setItem('profile_id', `${profileId}`);
+          localStorage.setItem('user_id', `${userId}`);
           setLogin(true);
         })
         .catch((error) => {

@@ -15,12 +15,15 @@ const getAllUsers = asyncHandler(async (req,res) => {
 })
 
 //@desc Get user and profile for one user
-//@route GET /profile
+//@route POST /profile
 //@access Private
 const getUser = asyncHandler(async (req,res) => {
-    const { email } = req.body
-    const user = await User.findOne({ "email": email }).select('-password').exec()
-    const profile = await Profile.findOne({ "user_id": user._id }).select('-password').exec()
+    const { user_id, profile_id } = req.body
+
+
+    const profile = await Profile.findById(profile_id ).select('-password').exec()
+    const user = await User.findById(user_id ).select('-password').exec()
+
 
     if(!user){
         return res.status(400).json({message: 'No user found'})
@@ -82,6 +85,8 @@ const createNewUser = asyncHandler(async (req,res) => {
 //@access Private
 const updateUser = asyncHandler(async (req,res) => {
     const {_id,email, password, firstName, lastName, address} = req.body
+
+    console.log(req.body)
 
     if(!_id, !email, !firstName, !lastName, !address) {
         return res.status(400).json({message:"All fields are required"})
