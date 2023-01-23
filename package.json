@@ -5,6 +5,7 @@
     "axios": "^1.2.3",
     "next-fonts": "^1.5.1",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.6.2"
+    "react-router-dom": "^6.6.2",
+    "swiper": "^8.4.6"
   }
 }
