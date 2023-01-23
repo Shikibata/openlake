@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SellCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FRONTEND/pages/closeTrade/[id].jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/controllers/nftController.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/controllers/nftController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/controllers/tradeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/controllers/tradeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/routes/closeTradeRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/routes/closeTradeRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/routes/openTradeRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/routes/openTradeRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/openTrade/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/openTrade/[id].jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/openTrade/[id].jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/openTrade/[id].jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

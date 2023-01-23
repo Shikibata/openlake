@@ -14,13 +14,9 @@ export default function BuyCard() {
     const _id = router.query.id
     console.log(_id);
     const [bought, setBought] = useState(false);
-    
 
-  
   const handleSubmit = (e) => {
     const nftBuy = nft._id
-   
-
     const configuration = {
         method: 'post',
         url: 'http://localhost:3500/openTrade',
@@ -39,26 +35,20 @@ export default function BuyCard() {
         error = new Error();
       });
   };
-  
-  
+
     const fetchCard = async () => {
       const data = await axios.get(`http://localhost:3500/explore/${_id}`);
       setNft(data.data);
     };
     useEffect(() => {
+      if(router.isReady){
       fetchCard();
-    }, []);
+      }
+    }, [router.isReady]);
   
     return (
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
+      <Container>
         <span>Buy {nft.title} for {nft.price} ETH?</span>
-        <br />
-        
-        <br />
         {bought ? (
           <Link href={{ pathname: `/explore`}}>{nft.title} was bought for {nft.price} ETH. Click to go back to index.</Link>
         ) : (
@@ -67,9 +57,13 @@ export default function BuyCard() {
                 <Link href={{ pathname: `/explore`}}>No</Link>
             </div>
         )}
-       
-
-    
-      </div>
+      </Container>
     );
   }
+
+const Container = styled.div`
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

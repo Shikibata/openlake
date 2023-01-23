@@ -22,7 +22,8 @@ export default function SingleCard() {
   useEffect(() => {
     if(router.isReady){
     setLoggedUserID(localStorage.getItem("profile_id"))
-    fetchCard();}
+    fetchCard();
+    }
 
   }, [router.isReady]);
 
@@ -136,7 +137,7 @@ const Price = styled.span`
   font-size: 2.6rem;
 `;
 
-const BuyAndSell = styled.a`
+const BuyAndSell = styled.div`
   font-size: 1.4rem;
   width: 20%;
   text-align: center;
