@@ -7,17 +7,16 @@ const jwt_decode = require("jwt-decode")
 //opening trade POST /openTrade
 
 const create = asyncHandler(async (req,res) => {
-    const nft  = req.params.id
-    const cookies = req.cookies
-    const token = cookies.jwt
-    const data = jwt_decode(token)
-
-    if(!nft || !profile_id){
+    const {nftBuy, profile_id}  = req.body
+    
+    console.log(req.body)
+    
+    if(!nftBuy || !profile_id){
         return res.status(400).json({ message: 'Profile ID, NFT required.'})
     }
 
-    const profile = await Profile.findOne({'_id': data.profile_id }).exec()
-    const boughtNFT = await NFT.findOne({"_id": nft}).exec()
+    const profile = await Profile.findOne({'_id': profile_id }).exec()
+    const boughtNFT = await NFT.findOne({"_id": nftBuy}).exec()
 
     if(boughtNFT.profile_id) {
         return res.status(400).json({ message: 'Item not available, please choose another.'})
@@ -59,15 +58,16 @@ const create = asyncHandler(async (req,res) => {
 //closing trade POST /closeTrade
 
 const close = asyncHandler(async (req,res) => {
-    const { id } = req.body
+    const {nftSell, profile_id} = req.body 
 
-    if(!id){
+    if(!nftSell || !profile_id){
         return res.status(400).json({ message: 'Trade ID required.'})
     }
 
-    const trade = await Trade.findById(id).exec()
-    const profile = await Profile.findOne({'_id': trade.profile_id }).exec()
-    const boughtNFT = await NFT.findOne({"profile_id": trade.profile_id}).exec()
+    
+    const profile = await Profile.findOne({'_id': profile_id }).exec()
+    const boughtNFT = await NFT.findOne({"_id": nftSell}).exec()
+    const trade = await Trade.findOne({'profile_id': profile_id, "nft_id": nftSell }).exec()
 
     
     trade.open = false

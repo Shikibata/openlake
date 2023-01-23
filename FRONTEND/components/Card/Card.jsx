@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaEthereum } from 'react-icons/fa';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+
 export default function Card() {
   const [nft, setNft] = useState([]);
   const fetchCards = async () => {
