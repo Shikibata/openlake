@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/navigation/footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/navigation/footer/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/styles/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
