@@ -5,7 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Camera.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Experience.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Renderer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/Resources.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/Sizes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/Time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/Utils/assets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/World/Environment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/World/Room.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/experience/World/World.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_decoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_decoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_encoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/draco_wasm_wrapper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_decoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_decoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_encoder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/draco/gltf/draco_wasm_wrapper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/models/room.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/4-mazzy-star-john-j-rodrigues-transparent.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/6-bmth-gustavo-pinto-dias.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/6n_jo1LD6qL3-KBKRmmF4OfSDVz7A6cRrm2qihQ17l0.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/image.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../My Room/public/textures/shiba.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/CardNewest.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/CardNewest.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/CardPopular.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/CardPopular.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SellCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SellCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/navigation/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/navigation/header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/user/login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/user/login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/user/profile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/user/profile/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/user/signup/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/user/signup/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +85,6 @@
       <recent name="C:\Users\HLoic\Documents\openlake" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FRONTEND/pages/user/login" />
       <recent name="C:\Users\HLoic\Documents\openlake\FRONTEND\public" />
       <recent name="C:\Users\HLoic\Documents\openlake\FRONTEND" />
       <recent name="C:\Users\HLoic\Documents\openlake\FRONTEND\public\assets\fonts" />
@@ -66,8 +100,9 @@
       <updated>1673881350853</updated>
       <workItem from="1673881353426" duration="11258000" />
       <workItem from="1673943357894" duration="4580000" />
-      <workItem from="1674031051235" duration="56382000" />
-      <workItem from="1674461818668" duration="12273000" />
+      <workItem from="1674498171922" duration="1712000" />
+      <workItem from="1674509996479" duration="164000" />
+      <workItem from="1674548825034" duration="6543000" />
     </task>
     <servers />
   </component>

@@ -50,15 +50,9 @@ export default function BuyCard() {
     }, []);
   
     return (
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <span>Sell {nft.title} for {nft.price} ETH?</span>
-        <br />
-        
-        <br />
+        <Container>
+            <ContainerTrade>
+        <p>Sell {nft.title} for {nft.price} ETH?</p>
         {sold ? (
           <Link href={{ pathname: `/explore`}}>{nft.title} was sold for {nft.price} ETH. Click to go back to index.</Link>
         ) : (
@@ -67,9 +61,43 @@ export default function BuyCard() {
                 <Link href={{ pathname: `/explore`}}>No</Link>
             </div>
         )}
-       
-
-    
-      </div>
+            </ContainerTrade>
+        </Container>
     );
   }
+
+const Container = styled.div`
+  padding: 5rem 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  p {
+    font-size: 2rem;
+  }
+`;
+
+const ContainerTrade = styled.div`
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  
+  div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  a, button {
+    font-size: 1.4rem;
+  }
+  button {
+    width: 3rem;
+  }
+`;

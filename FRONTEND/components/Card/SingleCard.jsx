@@ -67,8 +67,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: start;
-  justify-content: flex-start;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media (min-width: 768px) {
     padding: 5rem 1rem;

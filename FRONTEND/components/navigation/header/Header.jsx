@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import NavItem from './NavItem';
 import SearchBar from './SearchBar';
 import Theme from './Theme';
 
@@ -13,15 +12,17 @@ export default function Header() {
     { text: 'Explore', href: '/explore' },
     { text: 'Connect', href: '/user/login' },
   ];
-
+  const [ profileId, setProfileId ] = useState(null)
   const { theme, setTheme } = useTheme();
   const [themeState, setThemeState] = useState(false);
   const [navActive, setNavActive] = useState(null);
-  const [activeId, setActiveId] = useState(-1);
 
   useEffect(() => {
     setThemeState(true);
+      setProfileId(window.localStorage.profile_id);
   }, []);
+
+  console.log(profileId)
 
   if (!themeState) {
     return null;
@@ -66,17 +67,27 @@ export default function Header() {
       <NavMenuElements
         className={`${navActive ? 'active' : ''} nav__menu-list`}
       >
-        {MENU_LIST.map((menu, id) => (
-          <div
-            onClick={() => {
-              setActiveId(id);
-              setNavActive(false);
-            }}
-            key={menu.text}
-          >
-            <NavItem active={activeId === id} {...menu} />
-          </div>
-        ))}
+        {profileId ?
+        <NavItems>
+          <a href={"/explore"} className={'nav__link'}>
+            Explore
+          </a>
+          <a href={"/user/profile"} className={'nav__link'}>
+            Profile
+          </a>
+        </NavItems>
+        :
+        <NavItems>
+          <a href={"/explore"} className={'nav__link'}>
+            Explore
+          </a>
+          <a href={"/user/login"} className={'nav__link'}>
+            Connect
+          </a>
+        </NavItems>
+      }
+
+
         <ContainerTheme className={'theme'}>
           <Theme />
         </ContainerTheme>
@@ -87,15 +98,17 @@ export default function Header() {
 
 const Nav = styled.nav`
   display: flex;
-  width: 100%;
   align-items: center;
   align-content: center;
   height: 70px;
-  justify-content: space-between;
   padding: 5px 2rem;
   background-color: var(--bg);
-  position: fixed;
+  position: relative;
   z-index: 99;
+  max-width: 1920px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const NavMenuBar = styled.div`
@@ -139,6 +152,35 @@ const NavMenuElements = styled.div`
     align-items: center;
     width: 100%;
     margin-top: 0;
+  }
+`;
+
+const NavItems = styled.div`
+  .nav__link {
+    font-size: 18px;
+    position: relative;
+    transition: ease-in-out 0.3s;
+  }
+  
+  a {
+    margin-right: 50px;
+  }
+
+  @media (min-width: 768px) {
+    .nav__link::before {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 3px;
+      bottom: -10px;
+      left: 0;
+      background-color: var(--main);
+      transition: ease-in-out 0.3s;
+    }
+
+    .nav__link:hover:before {
+      width: 100%;
+    }
   }
 `;
 

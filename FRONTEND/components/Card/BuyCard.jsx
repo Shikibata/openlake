@@ -81,7 +81,7 @@ const ContainerTrade = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 74vh;
+  height: 100vh;
   
   div {
     width: 50%;
