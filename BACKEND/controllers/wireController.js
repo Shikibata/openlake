@@ -6,6 +6,8 @@ const Wire = require('../models/Wire')
 const newWire = asyncHandler(async (req,res) => {
     const { profile_id, amount, withdrawal } = req.body
 
+    console.log(req.body)
+
     if(!profile_id, !withdrawal, !amount) {
         return res.status(400).json({ message: 'Profile ID, amount and type deposit/withdrawal required.'})
     }
@@ -24,14 +26,15 @@ const newWire = asyncHandler(async (req,res) => {
         newBalance = balance - amount
         profile.balance = newBalance
         await profile.save()
-        res.json({message: `${createdWire.amount} ETH withdrawed.`})
+        res.json({message: `${createdWire.amount} ETH withdrawed. Balance is now ${newBalance} ETH.`})
     }
 
     if (withdrawal === false){
         newBalance = balance + amount
         profile.balance = newBalance
         await profile.save()
-        res.json({message: `${createdWire.amount} ETH added.`})
+        console.log(profile.balance)
+        res.json({message: `${createdWire.amount} ETH added. Balance is now ${newBalance} ETH.`})
     }
 
 

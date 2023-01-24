@@ -40,13 +40,18 @@ export default function SingleCard() {
           <InfosBottom>
             <Price><FaEthereum />{nft.price}</Price>
             <BuyAndSell>
-              {nft.profile_id == loggedUserID ? (
+              {nft.profile_id && nft.profile_id != loggedUserID ?
+              
+              <div>Not available.</div>
+              
+              :
+              (nft.profile_id == loggedUserID ? (
                   <Link href={{ pathname: `/closeTrade/[id]`, query: { id: _id } }}>
                     Sell
                   </Link>
               ) : (
                   <Link href={{ pathname: `/openTrade/[id]`, query: { id: _id } }}>Buy</Link>
-              )}
+              ))}
             </BuyAndSell>
           </InfosBottom>
         </Infos>

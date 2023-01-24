@@ -5,6 +5,9 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
 import {FaEthereum} from "react-icons/fa";
+import MyNFTs from '../../../components/User/MyNFTs';
+import MyTrades from '../../../components/User/MyTrades';
+
 
 export default function Index() {
 
@@ -93,6 +96,8 @@ export default function Index() {
           <button type="button" onClick={(e) => handleLogout(e)}>Logout</button>
           <Link href={{ pathname: `/user/profile/modif`, query: { user_id: user._id, profile_id: profile._id } }}>Modify</Link>
         </Logout>
+        <MyNFTs {...profile}/>
+        <MyTrades {...profile}/>
       </ProfileContainer>
     </PrimaryLayout>
   );
