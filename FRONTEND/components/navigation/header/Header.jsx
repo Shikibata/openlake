@@ -101,9 +101,10 @@ const Nav = styled.nav`
   align-items: center;
   align-content: center;
   height: 70px;
+  width: 100%;
   padding: 5px 2rem;
   background-color: var(--bg);
-  position: relative;
+  position: fixed;
   z-index: 99;
   max-width: 1920px;
   justify-content: center;
