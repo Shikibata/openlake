@@ -18,6 +18,7 @@ export default function CardPopular() {
     fetchCards();
   },[]);
 
+
   const mapCardPopular = () => {
     return (
       <Swiper

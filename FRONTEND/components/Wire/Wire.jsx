@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 
 export default function Wire() {
-    const router = new useRouter()
+    const router = useRouter()
     const profile_id = router.query.profile_id
     const [balance, setBalance] = useState([])
     const [withdrawal, setWithdrawal] = useState(false)
@@ -33,11 +33,20 @@ export default function Wire() {
     }
 
     useEffect(() => {
-        if(router.isReady){
+        if(router.isReady && window.localStorage.getItem("profile_id")){
         getBalance()
         }
     
       }, [router.isReady]);
+
+    useEffect(() => {
+        window.localStorage.getItem("profile_id") !== "undefined"
+            ? JSON.parse(window.localStorage.getItem("profile_id"))
+            : null;
+        if (!profile_id && router.pathname !== "user/login") {
+            router.replace("../../user/login")
+        }
+    }, []);
 
     return(
         <div>

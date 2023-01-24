@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
+import {FaEthereum} from "react-icons/fa";
 
 export default function Index() {
 
@@ -11,8 +12,8 @@ export default function Index() {
   const [profile, setProfile] = useState({})
   const router = useRouter();
 
-  const fetchUser = async () => {   
-  
+  const fetchUser = async () => {
+
       const configuration = {
           method: 'post',
           url: 'http://localhost:3500/profile',
@@ -51,13 +52,18 @@ export default function Index() {
   router.push('/')
   }
 
-  useEffect(() => {
-    if(router.isReady){
-    fetchUser();}
-  }, [router.isReady]);
+    useEffect(() => {
+        if (!window.localStorage.profile_id) {
+            router.push("../user/login")
+        }
+    }, []);
 
+    useEffect(() => {
+        if(router.isReady && window.localStorage.profile_id){
+            fetchUser();}
+    }, [router.isReady]);
 
-  return (
+    return (
     <PrimaryLayout>
       <ProfileContainer>
         <Infos>
@@ -79,8 +85,8 @@ export default function Index() {
           </div>
           <div>
             <h4>Balance:</h4>
-            <span>{profile.balance}</span>
-            <Link href={{ pathname: `/user/profile/balance`, query: { user_id: user._id, profile_id: profile._id } }}>Add/withdraw funds</Link>
+            <span>{profile.balance} ETH</span>
+            <Withdraw href={{ pathname: `/user/profile/balance`, query: { user_id: user._id, profile_id: profile._id } }}>Add/withdraw funds</Withdraw>
           </div>
         </Infos>
         <Logout>
@@ -93,12 +99,23 @@ export default function Index() {
 }
 
 const ProfileContainer = styled.div`
-  height: 100%;
+  height: auto;
   padding: 8rem 2rem;
   display: flex;
   flex-direction: column;
   place-items: center;
   max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: hidden;
+`;
+
+const Withdraw = styled(Link)`
+  font-size: 1.4em;
+  
+  :hover {
+    color: var(--main)
+  }
 `;
 
 const Infos = styled.div`
@@ -134,5 +151,16 @@ const Logout = styled.div`
   width: 50%;
   a {
     font-size: 1.4em;
+  }
+  
+  button {
+    border: none;
+    background:none;
+    font-size: 1.4em;
+  }
+  
+  button:hover, a:hover {
+      color: var(--main);
+      cursor: pointer;
   }
 `;

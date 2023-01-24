@@ -109,6 +109,7 @@ const Nav = styled.nav`
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 `;
 
 const NavMenuBar = styled.div`
