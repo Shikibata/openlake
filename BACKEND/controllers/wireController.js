@@ -37,12 +37,13 @@ const newWire = asyncHandler(async (req,res) => {
 
 })
 
-//get profile balance GET /currentBalance
+//get profile balance POST /currentBalance
 
 const getBalance = asyncHandler(async (req,res) => {
-    const { id } = req.body
-    const profile = await Profile.findById(id).exec()
-    if(!balance){
+    const { profile_id } = req.body
+   
+    const profile = await Profile.findById(profile_id).exec()
+    if(!profile.balance){
         return res.status(400).json({message: 'No balance found'})
     }
     res.json(profile.balance)

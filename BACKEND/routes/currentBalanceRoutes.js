@@ -5,7 +5,7 @@ const wireController = require('../controllers/wireController')
 
 
 router.route('/')
-    .get(wireController.getBalance)
+    .post(wireController.getBalance)
     
 
 
