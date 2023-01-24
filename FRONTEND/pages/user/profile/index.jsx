@@ -87,6 +87,8 @@ export default function Index() {
           <button type="button" onClick={(e) => handleLogout(e)}>Logout</button>
           <Link href={{ pathname: `/user/profile/modif`, query: { user_id: user._id, profile_id: profile._id } }}>Modify</Link>
         </Logout>
+        <MyNFTs/>
+        <MyTrades/>
       </ProfileContainer>
     </PrimaryLayout>
   );
