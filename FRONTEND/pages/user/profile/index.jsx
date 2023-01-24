@@ -33,6 +33,24 @@ export default function Index() {
     
   };
 
+  const handleLogout= async() =>  {
+    
+    const configuration = {
+      method: 'post',
+      url: 'http://localhost:3500/auth/logout',
+      data: {
+          user_id: localStorage.getItem('user_id'),
+          profile_id: localStorage.getItem('profile_id')
+      },
+    };
+  // prevent the form from refreshing the whole page
+  await axios(configuration)
+  window.localStorage.removeItem("profile_id")
+  window.localStorage.removeItem("user_id")
+
+  router.push('/')
+  }
+
   useEffect(() => {
     if(router.isReady){
     fetchUser();}
@@ -62,11 +80,11 @@ export default function Index() {
           <div>
             <h4>Balance:</h4>
             <span>{profile.balance}</span>
-            <a>Add Balance</a>
+            <Link href={{ pathname: `/user/profile/balance`, query: { user_id: user._id, profile_id: profile._id } }}>Add/withdraw funds</Link>
           </div>
         </Infos>
         <Logout>
-          <a>Logout</a>
+          <button type="button" onClick={(e) => handleLogout(e)}>Logout</button>
           <Link href={{ pathname: `/user/profile/modif`, query: { user_id: user._id, profile_id: profile._id } }}>Modify</Link>
         </Logout>
       </ProfileContainer>
