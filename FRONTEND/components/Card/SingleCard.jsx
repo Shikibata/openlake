@@ -63,7 +63,7 @@ export default function SingleCard() {
 const Container = styled.div`
   padding: 5rem 1rem;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   flex-direction: column;

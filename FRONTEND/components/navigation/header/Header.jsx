@@ -99,12 +99,11 @@ export default function Header() {
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  align-content: center;
   height: 70px;
   width: 100%;
   padding: 5px 2rem;
   background-color: var(--bg);
-  position: fixed;
+  position: sticky;
   z-index: 99;
   max-width: 1920px;
   justify-content: center;
