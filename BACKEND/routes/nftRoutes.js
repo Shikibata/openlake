@@ -13,4 +13,6 @@ router.route('/')
 router.route('/:id')
     .get(nftController.getNFT)
 
+
+
 module.exports = router

@@ -29,7 +29,7 @@ const create = asyncHandler(async (req,res) => {
     if(profile.balance > boughtNFT.price) {
         //create trade for the profile with the nft
         const open_datetime = new Date()
-        const newTradeObject = {"nft_id": boughtNFT._id, profile_id, "open_price": boughtNFT.price, open_datetime }
+        const newTradeObject = {"nft_id": boughtNFT._id, profile_id, "open_price": boughtNFT.price, open_datetime, "nft_title": boughtNFT.title }
 
         const newTrade = await Trade.create(newTradeObject)
 
@@ -95,7 +95,7 @@ const close = asyncHandler(async (req,res) => {
 
 //get all my trades GET /trades/index
 const getMyTrades = asyncHandler(async (req,res) => {
-    const { id } = req.body
+    const  id  = req.params.id
     const myTrades = await Trade.find({"profile_id": id}).exec()
     if(!myTrades?.length){
         return res.status(400).json({message: 'No trade found'})
@@ -117,7 +117,7 @@ const getTrade = asyncHandler(async (req,res) => {
 //get all of user open trades /trades/index/open
 
 const getMyOpenTrades = asyncHandler(async (req,res) => {
-    const { id } = req.body
+    const  id  = req.params.id
     const myTrades = await Trade.find({"profile_id": id, "open": true}).exec()
     if(!myTrades?.length){
         return res.status(400).json({message: 'No trade found'})

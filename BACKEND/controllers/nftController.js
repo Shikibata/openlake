@@ -16,6 +16,21 @@ const getNFT = asyncHandler(async (req,res) => {
     res.json(singleNFT)
 })
 
+//@desc Get my NFTs
+//@route GET /explore/:profile_id
+//@access Private
+const getMyNFTs = asyncHandler(async (req,res) => {
+    const id = req.params.id
+
+    console.log(req.params)
+    if(!id){
+        return res.status(400).json({message: 'No ID was provided found.'})
+    }
+    const NFTs = await NFT.find({"profile_id": id}).exec()
+
+    res.json(NFTs)
+})
+
 //@desc Get all NFT
 //@route GET /explore
 //@access Private
@@ -75,7 +90,8 @@ module.exports = {
     create, 
     getAllNFTs,
     getNFT,
-    deleteNFT
+    deleteNFT,
+    getMyNFTs
 }
 
 //delete DELETE
