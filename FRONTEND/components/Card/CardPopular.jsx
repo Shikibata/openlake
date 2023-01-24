@@ -16,7 +16,7 @@ export default function CardPopular() {
   };
   useEffect(() => {
     fetchCards();
-  });
+  },[]);
 
   const mapCardPopular = () => {
     return (
@@ -91,7 +91,6 @@ export default function CardPopular() {
 const ContainerAll = styled.div`
   display: grid;
   justify-content: center;
-  width: 74vw;
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 540px) {
@@ -102,8 +101,12 @@ const ContainerAll = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
   }
+
 `;
 
 const Container = styled.div`

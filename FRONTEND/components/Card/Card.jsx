@@ -14,7 +14,7 @@ export default function Card() {
   };
   useEffect(() => {
     fetchCards();
-  });
+  },[]);
 
   const mapCardPopular = () => {
     return nft.map((nfti, id) => (

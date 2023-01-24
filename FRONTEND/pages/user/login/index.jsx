@@ -105,6 +105,7 @@ const Container = styled.div`
   display: flex;
   -webkit-box-flex: 1;
   flex-grow: 1;
+  max-width: 1920px;
 `;
 
 const LeftContainer = styled.div`

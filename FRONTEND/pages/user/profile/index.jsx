@@ -80,6 +80,7 @@ const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   place-items: center;
+  max-width: 1920px;
 `;
 
 const Infos = styled.div`

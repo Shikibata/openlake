@@ -16,9 +16,11 @@ export default function CardNewest() {
 
     setNewest(data.data.fiveNewest);
   };
-  useEffect(() => {
-    fetchCards();
-  });
+
+    useEffect(() => {
+        fetchCards();
+    },[]);
+
 
   const mapCardNewest = () => {
     return (
@@ -93,7 +95,7 @@ export default function CardNewest() {
 const ContainerAll = styled.a`
   display: grid;
   justify-content: center;
-  width: 70vw;
+  
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 540px) {
@@ -104,7 +106,10 @@ const ContainerAll = styled.a`
     grid-template-columns: repeat(3, 1fr);
   }
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 \` ;
