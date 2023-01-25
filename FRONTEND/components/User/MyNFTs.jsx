@@ -27,9 +27,16 @@ export default function MyNFTs({ ...profile }) {
 
   return (
       <div>
+        
         {
-          nft.length > 0 || nft !== undefined ?
-          nft.map((nfti, id) => <ImageNft key={nfti._id} src={nfti.image} />) : <p>Salut</p>
+        
+            nft.length ?
+         
+          nft.map((nfti, id) => <ImageNft key={nfti._id} src={nfti.image} />) 
+
+          :
+
+          <div>No NFT.</div>
         }
       </div>)
 }

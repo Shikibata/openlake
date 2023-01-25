@@ -1,3 +1,4 @@
+'use client';
 import styled from '@emotion/styled';
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -17,8 +18,14 @@ export default function SearchBar() {
 
   const handleAnswerChange = (e) =>{
 		if(e.key === 'Enter'){
-      console.log(search)
-			router.push(`http://localhost:3000/explore/search`, { params: { search: search } })
+      localStorage.setItem("search", search)
+      if (router.pathname !== `../explore/search`){
+			router.push(`../explore/search`)}
+
+      else{
+        window.location.reload(false);
+        console.log("lol")
+      }
     }
 }
 

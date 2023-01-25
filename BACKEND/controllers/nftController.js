@@ -86,12 +86,31 @@ const deleteNFT = asyncHandler(async (req,res) => {
 
 })
 
+//@desc Get NFTs by search
+//@route GET /explore/search/:id
+//@access Private
+
+const findBySearch = asyncHandler(async (req,res) => {
+    const search  = req.params.search
+
+    console.log(req.params.search)
+    if(!search ) {
+        return res.status(400).json( {message: 'No search info was provided.'})
+    }
+
+    const foundNFTs= await NFT.find({$or: [{"creator": { $regex: search, '$options': 'i' }}, {"title": { $regex: search, '$options': 'i' }}]}).exec()
+
+    res.json(foundNFTs)
+
+})
+
 module.exports = {
     create, 
     getAllNFTs,
     getNFT,
     deleteNFT,
-    getMyNFTs
+    getMyNFTs,
+    findBySearch
 }
 
 //delete DELETE

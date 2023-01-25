@@ -6,19 +6,22 @@ import { useEffect, useState } from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 
 export default function SearchResults() {
     const [nft, setNft] = useState([]);
+    const router = useRouter();
     
+
     const fetchCards = async () => {
-      const data = await axios.get('http://localhost:3500/explore');
-  
-      setNft(data.data.NFTs);
+        const search = localStorage.getItem("search")
+        const data = await axios.get(`http://localhost:3500/explore/search/${search}`);
+        setNft(data.data);
     };
     useEffect(() => {
-      fetchCards();
-    },[]);
+        fetchCards()
+      }, []);
   
     const mapCardPopular = () => {
       return nft.map((nfti, id) => (
@@ -42,8 +45,8 @@ export default function SearchResults() {
             </Price>
           </CardBottom>
         </Container>
-      ));
-    };
+      ))
+    } ;
   
     return <ContainerAll>{mapCardPopular()}</ContainerAll>;
 }

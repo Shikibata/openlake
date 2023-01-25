@@ -49,6 +49,7 @@ app.use('/closedPNL', require('./routes/closedPNLRoutes'))
 app.use('/openPNL', require('./routes/openPNLRoutes'))
 app.use('/currentBalance', require('./routes/currentBalanceRoutes'))
 
+
 app.all('*', (req,res) => {
     res.status(404)
     if (req.accepts('html')) {
