@@ -66,7 +66,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 360px;
-  min-width: 100vw;
+  min-width: 100%;
   margin-top: 50px;
 
   @media (min-width: 540px) {
@@ -82,6 +82,7 @@ const ImageHolder = styled.div`
   bottom: 242px;
   z-index: 0;
   height: 252px;
+  right: 0;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -126,7 +127,7 @@ const CardBottom = styled.div`
   align-items: baseline;
   justify-content: space-between;
   padding: 1rem 1rem;
-  width: 100%;
+  width: calc(100% - 20px);
   margin: 0px 10px;
 
   @media (min-width: 540px) {

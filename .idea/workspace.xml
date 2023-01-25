@@ -31,9 +31,11 @@
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/image.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/shiba.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/navigation/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/navigation/header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/Card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/User/MyNFTs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/User/MyNFTs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/User/MyTrades.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/User/MyTrades.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/explore/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/explore/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/user/profile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/user/profile/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

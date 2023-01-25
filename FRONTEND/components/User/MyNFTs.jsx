@@ -23,17 +23,43 @@ export default function MyNFTs({ ...profile }) {
     if (profile._id) {
       fetchCards();
     }
-  }, []);
-
+  }, [profile._id]);
   return (
-      <div>
-        {
-          nft.length > 0 || nft !== undefined ?
-          nft.map((nfti, id) => <ImageNft key={nfti._id} src={nfti.image} />) : <p>Salut</p>
-        }
-      </div>)
+    <Container>
+      <SectionTitle>Collection</SectionTitle>
+      <ContainerCards>
+      {nft.map((nfti, id) => (
+        <ClickHolder
+          key={nfti._id}
+          href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}
+        >
+          <ImageNft src={nfti.image} />
+        </ClickHolder>
+      ))}
+      </ContainerCards>
+    </Container>
+  );
 }
 
-const ImageNft = styled.img`
-  width: 100px;
+const Container = styled.div`
+  width: 100%;
 `;
+
+
+const ContainerCards = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const ImageNft = styled.img`
+  width: 10rem;
+  margin: 5px;
+`;
+
+const SectionTitle = styled.h3`
+  text-align: center;
+`;
+
+const ClickHolder = styled(Link)``;

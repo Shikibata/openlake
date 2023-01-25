@@ -71,7 +71,7 @@ const CardItself = styled(motion.div)`
 `;
 
 const ContainerTop = styled(motion.div)`
-  padding-top: 1rem;
+  padding-top: 5rem;
 
   h2 {
     text-align: center;

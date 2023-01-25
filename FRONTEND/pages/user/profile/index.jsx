@@ -67,6 +67,19 @@ export default function Index() {
   return (
     <PrimaryLayout>
       <ProfileContainer>
+        <Logout>
+          <button type="button" onClick={() => handleLogout()}>
+            Logout
+          </button>
+          <Link
+              href={{
+                pathname: `/user/profile/modif`,
+                query: { user_id: user._id, profile_id: profile._id },
+              }}
+          >
+            Modify
+          </Link>
+        </Logout>
         <Infos>
           <div>
             <h4>Email:</h4>
@@ -86,33 +99,22 @@ export default function Index() {
           </div>
           <div>
             <h4>Balance:</h4>
-            <span>{profile.balance} ETH</span>
+            <span>{profile.balance} ETH </span>
+          </div>
+          <div>
             <Withdraw
-              href={{
-                pathname: `/user/profile/balance`,
-                query: { user_id: user._id, profile_id: profile._id },
-              }}
-            >
-              Add/withdraw funds
+                href={{
+                  pathname: `/user/profile/balance`,
+                  query: { user_id: user._id, profile_id: profile._id },
+                }}
+            >Add/withdraw funds
             </Withdraw>
           </div>
         </Infos>
-        <Logout>
-          <button type="button" onClick={(e) => handleLogout(e)}>
-            Logout
-          </button>
-          <Link
-            href={{
-              pathname: `/user/profile/modif`,
-              query: { user_id: user._id, profile_id: profile._id },
-            }}
-          >
-            Modify
-          </Link>
-        </Logout>
-
-        <MyNFTs {...profile} />
-        <MyTrades {...profile} />
+        <SectionMy>
+          <MyNFTs {...profile} />
+          <MyTrades {...profile} />
+        </SectionMy>
       </ProfileContainer>
     </PrimaryLayout>
   );
@@ -120,7 +122,7 @@ export default function Index() {
 
 const ProfileContainer = styled.div`
   height: auto;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -132,6 +134,8 @@ const ProfileContainer = styled.div`
 
 const Withdraw = styled(Link)`
   font-size: 1em;
+  width: 100%;
+  text-align: center;
 
   :hover {
     color: var(--main);
@@ -139,6 +143,12 @@ const Withdraw = styled(Link)`
 `;
 
 const Infos = styled.div`
+  
+  
+  @media (max-width: 1024px) {
+    width: 100%;
+    
+  }
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -152,6 +162,11 @@ const Infos = styled.div`
     gap: 5rem;
     padding: 0.5rem 0.5rem;
     align-items: center;
+    
+    @media (max-width: 1024px)
+    {
+      padding: 0.5rem 0rem;
+    }
 
     h4 {
       font-size: 1em;
@@ -184,4 +199,12 @@ const Logout = styled.div`
     color: var(--main);
     cursor: pointer;
   }
+`;
+
+const SectionMy = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  max-width: 1920px;
+  width: 90%;
+  justify-content: center;
 `;

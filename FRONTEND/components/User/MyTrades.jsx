@@ -11,8 +11,8 @@ export default function MyNFTs({ ...profile }) {
 
   const fetchTrades = async () => {
     const data = await axios.get(
-      `http://localhost:3500/myTrades/${profile._id}`,
-      { params: { id: profile._id } }
+        `http://localhost:3500/myTrades/${profile._id}`,
+        {params: {id: profile._id}}
     );
     setTrades(data.data);
     console.log(trades);
@@ -24,19 +24,44 @@ export default function MyNFTs({ ...profile }) {
     }
   }, [profile._id]);
 
-  return trades.map((trade, id) => (
-    <div>
-      {!trade.close_datetime ? (
-        <div key={trade._id}>
-          {' '}
-          Bought {trade.nft_title} for {trade.open_price} ETH.
-        </div>
-      ) : (
-        <div key={trade._id}>
-          {' '}
-          Sold {trade.nft_title} for {trade.open_price} ETH.
-        </div>
-      )}
-    </div>
-  ));
+  return (
+
+      <Container>
+        <SectionTitle>History</SectionTitle>
+        <ContainerHistory>
+        {trades.map((trade, id) => (
+            <div key={id}>
+              {!trade.close_datetime ? (
+                  <div key={trade._id}>
+                    {' '}
+                    Bought {trade.nft_title} for {trade.open_price} ETH.
+                  </div>
+              ) : (
+                  <div key={trade._id}>
+                    {' '}
+                    Sold {trade.nft_title} for {trade.open_price} ETH.
+                  </div>
+              )}
+            </div>
+        ))}
+        </ContainerHistory></Container>
+
+  )
 }
+
+const Container = styled.div`
+  width: 100%;
+`;
+
+const SectionTitle = styled.h3`
+  text-align: center;
+`;
+
+const ContainerHistory = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ClickHolder = styled(Link)``;
