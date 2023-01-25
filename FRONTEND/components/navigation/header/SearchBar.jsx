@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function SearchBar() {
+  const router = new useRouter()
   const clickPoint = useRef();
+  const [search, setSearch] = useState("")
+
   const handleFocus = () => {
     clickPoint.current.style.display = 'none';
   };
@@ -10,6 +14,14 @@ export default function SearchBar() {
   const handleBlur = () => {
     clickPoint.current.style.display = 'block';
   };
+
+  const handleAnswerChange = (e) =>{
+		if(e.key === 'Enter'){
+      console.log(search)
+			router.push(`http://localhost:3000/explore/search`, { params: { search: search } })
+    }
+}
+
 
   return (
     <Searchbar>
@@ -19,6 +31,9 @@ export default function SearchBar() {
           placeholder="Looking for something ?"
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onKeyDown={(e) => handleAnswerChange(e)}
+          onChange={(e) => setSearch(e.target.value)}
+
         />
         <Button ref={clickPoint}>
           <Svg
