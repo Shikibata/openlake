@@ -45,7 +45,7 @@ const Feeter = styled.footer`
   width: 100%;
   background-color: var(--bg);
   margin-top: auto;
-  z-index: 1
+  z-index: 1;
 `;
 
 const Span = styled.span`

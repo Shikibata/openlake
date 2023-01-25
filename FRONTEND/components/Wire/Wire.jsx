@@ -5,15 +5,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-
 export default function Wire() {
     const router = useRouter()
     const profile_id = router.query.profile_id
     const [balance, setBalance] = useState([])
     const [amount, setAmount] = useState(0)
-    const [added, setAdded] = useState(false)
-    const [withdrawed, setWithdrawed] = useState(false)
-    const [manipulatedAmount, setManipulatedAmount] = useState(0)
+   
 
     const getBalance = async() => {
         const configuration = {
@@ -34,7 +31,7 @@ export default function Wire() {
           });
     }
 
-    //add funds
+  //add funds
 
     const addFunds = async() => {
       let amountInt = parseInt(amount)
@@ -61,7 +58,7 @@ export default function Wire() {
           });
     }
 
-    //withdraw funds
+  //withdraw funds
 
     const withdrawFunds = async() => {
       let amountInt = parseInt(amount)
@@ -87,13 +84,7 @@ export default function Wire() {
             error = new Error();
           });
     }
-
-    useEffect(() => {
-        if(router.isReady && window.localStorage.getItem("profile_id")){
-        getBalance()
-        }
-    
-      }, [router.isReady]);
+  
 
     useEffect(() => {
       if (!window.localStorage.profile_id) {
@@ -101,9 +92,16 @@ export default function Wire() {
     }
     }, []);
 
-    return(
-        <div>
-            <div>{balance} ETH available.</div>
+    useEffect(() => {
+      if(router.isReady && window.localStorage.getItem("profile_id")){
+      getBalance()
+      }
+  
+    }, [router.isReady]);
+
+  return (
+    <div>
+      <div>{balance} ETH available.</div>
 
             <label htmlFor="amount">Amount</label>
             <input type="number" name="amount" min="0" onChange={(e) => setAmount(e.target.value)}/>

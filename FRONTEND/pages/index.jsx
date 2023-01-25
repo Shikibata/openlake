@@ -44,6 +44,7 @@ const Container = styled.div`
   height: calc(100vh - 70px);
   width: 100%;
   overflow: hidden;
+  max-width: 1920px;
 
   @media (min-width: 1024px) {
     flex-direction: row;

@@ -14,7 +14,7 @@ export default function Card() {
   };
   useEffect(() => {
     fetchCards();
-  },[]);
+  }, []);
 
   const mapCardPopular = () => {
     return nft.map((nfti, id) => (
@@ -24,11 +24,12 @@ export default function Card() {
             <NameNft>{nfti.name}</NameNft>
             <NameArt>{nfti.name}</NameArt>
           </Hidden>
-          <ClickHolder href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}>
-            <ImageHolder
-                style={{ backgroundImage: `url(${nfti.image})` }}
-            />
-          </ClickHolder>        </CardTop>
+          <ClickHolder
+            href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}
+          >
+            <ImageHolder style={{ backgroundImage: `url(${nfti.image})` }} />
+          </ClickHolder>{' '}
+        </CardTop>
         <CardBottom>
           <Creator>{nfti.creator}</Creator>
           <Creator>{nfti.title}</Creator>
@@ -46,6 +47,7 @@ export default function Card() {
 
 const ContainerAll = styled.div`
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 540px) {
@@ -72,8 +74,7 @@ const Container = styled.div`
   }
 `;
 
-const ClickHolder = styled(Link)`
-`;
+const ClickHolder = styled(Link)``;
 
 const ImageHolder = styled.div`
   border-radius: 10px 10px 0px 0px;
