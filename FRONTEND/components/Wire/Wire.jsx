@@ -10,6 +10,9 @@ export default function Wire() {
     const profile_id = router.query.profile_id
     const [balance, setBalance] = useState([])
     const [amount, setAmount] = useState(0)
+    const [added, setAdded] = useState(false)
+    const [withdrawed, setWithdrawed] = useState(false)
+    const[manipulatedAmount, setManipulatedAmount] = useState('')
    
 
     const getBalance = async() => {
