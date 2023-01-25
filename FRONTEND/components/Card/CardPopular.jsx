@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Link from "next/link";
+import Link from 'next/link';
 export default function CardPopular() {
   const [popular, setPopular] = useState([]);
 
@@ -16,8 +16,7 @@ export default function CardPopular() {
   };
   useEffect(() => {
     fetchCards();
-  },[]);
-
+  }, []);
 
   const mapCardPopular = () => {
     return (
@@ -65,7 +64,9 @@ export default function CardPopular() {
                   <NameNft>{nfti.name}</NameNft>
                   <NameArt>{nfti.name}</NameArt>
                 </Hidden>
-                <ClickHolder href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}>
+                <ClickHolder
+                  href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}
+                >
                   <ImageHolder
                     style={{ backgroundImage: `url(${nfti.image})` }}
                   />
@@ -107,7 +108,6 @@ const ContainerAll = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
-
 `;
 
 const Container = styled.div`

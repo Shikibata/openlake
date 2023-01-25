@@ -17,10 +17,9 @@ export default function CardNewest() {
     setNewest(data.data.fiveNewest);
   };
 
-    useEffect(() => {
-        fetchCards();
-    },[]);
-
+  useEffect(() => {
+    fetchCards();
+  }, []);
 
   const mapCardNewest = () => {
     return (
@@ -68,7 +67,9 @@ export default function CardNewest() {
                   <NameNft>{nfti.name}</NameNft>
                   <NameArt>{nfti.name}</NameArt>
                 </Hidden>
-                <ClickHolder href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}>
+                <ClickHolder
+                  href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}
+                >
                   <ImageHolder
                     style={{ backgroundImage: `url(${nfti.image})` }}
                   />
@@ -92,10 +93,11 @@ export default function CardNewest() {
   return <ContainerAll>{mapCardNewest()}</ContainerAll>;
 }
 
-const ContainerAll = styled.a`
+const ContainerAll = styled.div`
   display: grid;
   justify-content: center;
-  
+  max-width: 1920px;
+  place-items: center;
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 540px) {
@@ -115,7 +117,7 @@ const ContainerAll = styled.a`
 \` ;
 `;
 
-const Container = styled.a`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 240px;

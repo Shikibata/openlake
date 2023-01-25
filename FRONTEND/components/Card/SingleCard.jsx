@@ -10,9 +10,9 @@ export default function SingleCard() {
   const [nft, setNft] = useState([]);
   const [profile, setProfile] = useState([]);
   const router = useRouter();
-  const _id = router.query.id
+  const _id = router.query.id;
   console.log(_id);
-  const [loggedUserID, setLoggedUserID] = useState("");
+  const [loggedUserID, setLoggedUserID] = useState('');
 
   const fetchCard = async () => {
     const data = await axios.get(`http://localhost:3500/explore/${_id}`);
@@ -20,42 +20,42 @@ export default function SingleCard() {
   };
 
   useEffect(() => {
-    if(router.isReady){
-    setLoggedUserID(localStorage.getItem("profile_id"))
-    fetchCard();
+    if (router.isReady) {
+      setLoggedUserID(localStorage.getItem('profile_id'));
+      fetchCard();
     }
-
   }, [router.isReady]);
 
   return (
-      <Container>
-        <ImageHolder>
-          <img src={nft.image}/>
-        </ImageHolder>
-        <Infos>
-          <InfosTop>
-            <Creator>{nft.creator}</Creator>
-            <Title>{nft.title}</Title>
-          </InfosTop>
-          <InfosBottom>
-            <Price><FaEthereum />{nft.price}</Price>
-            <BuyAndSell>
-              {nft.profile_id && nft.profile_id != loggedUserID ?
-              
+    <Container>
+      <ImageHolder>
+        <img src={nft.image} />
+      </ImageHolder>
+      <Infos>
+        <InfosTop>
+          <Creator>{nft.creator}</Creator>
+          <Title>{nft.title}</Title>
+        </InfosTop>
+        <InfosBottom>
+          <Price>
+            <FaEthereum />
+            {nft.price}
+          </Price>
+          <BuyAndSell>
+            {nft.profile_id && nft.profile_id != loggedUserID ? (
               <div>Not available.</div>
-              
-              :
-              (nft.profile_id == loggedUserID ? (
-                  <Link href={{ pathname: `/closeTrade/[id]`, query: { id: _id } }}>
-                    Sell
-                  </Link>
-              ) : (
-                  <Link href={{ pathname: `/openTrade/[id]`, query: { id: _id } }}>Buy</Link>
-              ))}
-            </BuyAndSell>
-          </InfosBottom>
-        </Infos>
-
+            ) : nft.profile_id == loggedUserID ? (
+              <Link href={{ pathname: `/closeTrade/[id]`, query: { id: _id } }}>
+                Sell
+              </Link>
+            ) : (
+              <Link href={{ pathname: `/openTrade/[id]`, query: { id: _id } }}>
+                Buy
+              </Link>
+            )}
+          </BuyAndSell>
+        </InfosBottom>
+      </Infos>
     </Container>
   );
 }
@@ -86,11 +86,11 @@ const ImageHolder = styled.div`
   align-items: start;
   margin-left: auto;
   margin-right: auto;
-  
+
   @media (min-width: 768px) {
     width: 50%;
   }
-  
+
   img {
     width: 90%;
     max-width: 650px;
@@ -104,7 +104,7 @@ const Infos = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  
+
   @media (min-width: 768px) {
     width: 50%;
     max-width: 800px;

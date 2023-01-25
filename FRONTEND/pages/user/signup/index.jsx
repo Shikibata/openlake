@@ -3,8 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Index() {
+  const router = useRouter();
   const Form = () => {
     const [user, setUser] = useState([]);
     const [email, setEmail] = useState('');
@@ -27,6 +29,7 @@ export default function Index() {
     };
     const handleSubmit = (e) => {
       // prevent the form from refreshing the whole page
+      e.preventDefault();
       axios(configuration)
         .then((result) => {
           setRegister(true);
@@ -34,7 +37,7 @@ export default function Index() {
         .catch((error) => {
           error = new Error();
         });
-      this.props.history.push('/');
+      router.push('../user/login');
     };
 
     return (

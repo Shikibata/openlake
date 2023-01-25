@@ -4,69 +4,67 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
-import {FaEthereum} from "react-icons/fa";
+import { FaEthereum } from 'react-icons/fa';
 import MyNFTs from '../../../components/User/MyNFTs';
 import MyTrades from '../../../components/User/MyTrades';
 
-
 export default function Index() {
-
-  const [user, setUser] = useState({})
-  const [profile, setProfile] = useState({})
+  const [user, setUser] = useState({});
+  const [profile, setProfile] = useState({});
   const router = useRouter();
 
   const fetchUser = async () => {
-
-      const configuration = {
-          method: 'post',
-          url: 'http://localhost:3500/profile',
-          data: {
-              user_id: localStorage.getItem('user_id'),
-              profile_id: localStorage.getItem('profile_id')
-          },
-        };
-      // prevent the form from refreshing the whole page
-      axios(configuration)
-        .then((result) => {
-          setUser(result.data.user)
-          setProfile(result.data.profile)
-        })
-        .catch((error) => {
-          error = new Error();
-        });
-    
+    const configuration = {
+      method: 'post',
+      url: 'http://localhost:3500/profile',
+      data: {
+        user_id: localStorage.getItem('user_id'),
+        profile_id: localStorage.getItem('profile_id'),
+      },
+    };
+    // prevent the form from refreshing the whole page
+    axios(configuration)
+      .then((result) => {
+        setUser(result.data.user);
+        setProfile(result.data.profile);
+      })
+      .catch((error) => {
+        error = new Error();
+      });
   };
 
-  const handleLogout= async() =>  {
-    
+  const handleLogout = async () => {
     const configuration = {
       method: 'post',
       url: 'http://localhost:3500/auth/logout',
       data: {
-          user_id: localStorage.getItem('user_id'),
-          profile_id: localStorage.getItem('profile_id')
+        user_id: localStorage.getItem('user_id'),
+        profile_id: localStorage.getItem('profile_id'),
       },
     };
-  // prevent the form from refreshing the whole page
-  await axios(configuration)
-  window.localStorage.removeItem("profile_id")
-  window.localStorage.removeItem("user_id")
+    // prevent the form from refreshing the whole page
+    await axios(configuration);
+    window.localStorage.removeItem('profile_id');
+    window.localStorage.removeItem('user_id');
 
-  router.push('/')
-  }
+    router.push('/');
+  };
 
-    useEffect(() => {
-        if (!window.localStorage.profile_id) {
-            router.push("../user/login")
-        }
-    }, []);
+  useEffect(() => {
+    if (!window.localStorage.profile_id) {
+      router.push('../user/login');
+    }
+  }, []);
 
-    useEffect(() => {
-        if(router.isReady && window.localStorage.profile_id){
-            fetchUser();}
-    }, [router.isReady]);
+  useEffect(() => {
+    if (router.isReady && window.localStorage.profile_id) {
+      fetchUser();
+    }
+  }, [router.isReady]);
 
-    return (
+  console.log(profile);
+
+  return (
     <PrimaryLayout>
       <ProfileContainer>
         <Infos>
@@ -89,15 +87,32 @@ export default function Index() {
           <div>
             <h4>Balance:</h4>
             <span>{profile.balance} ETH</span>
-            <Withdraw href={{ pathname: `/user/profile/balance`, query: { user_id: user._id, profile_id: profile._id } }}>Add/withdraw funds</Withdraw>
+            <Withdraw
+              href={{
+                pathname: `/user/profile/balance`,
+                query: { user_id: user._id, profile_id: profile._id },
+              }}
+            >
+              Add/withdraw funds
+            </Withdraw>
           </div>
         </Infos>
         <Logout>
-          <button type="button" onClick={(e) => handleLogout(e)}>Logout</button>
-          <Link href={{ pathname: `/user/profile/modif`, query: { user_id: user._id, profile_id: profile._id } }}>Modify</Link>
+          <button type="button" onClick={(e) => handleLogout(e)}>
+            Logout
+          </button>
+          <Link
+            href={{
+              pathname: `/user/profile/modif`,
+              query: { user_id: user._id, profile_id: profile._id },
+            }}
+          >
+            Modify
+          </Link>
         </Logout>
-        <MyNFTs {...profile}/>
-        <MyTrades {...profile}/>
+
+        <MyNFTs {...profile} />
+        <MyTrades {...profile} />
       </ProfileContainer>
     </PrimaryLayout>
   );
@@ -105,7 +120,7 @@ export default function Index() {
 
 const ProfileContainer = styled.div`
   height: auto;
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -116,10 +131,10 @@ const ProfileContainer = styled.div`
 `;
 
 const Withdraw = styled(Link)`
-  font-size: 1.4em;
-  
+  font-size: 1em;
+
   :hover {
-    color: var(--main)
+    color: var(--main);
   }
 `;
 
@@ -139,12 +154,12 @@ const Infos = styled.div`
     align-items: center;
 
     h4 {
-      font-size: 1.5em;
+      font-size: 1em;
       width: 20%;
     }
 
     span {
-      font-size: 1.5em;
+      font-size: 1em;
     }
   }
 `;
@@ -155,17 +170,18 @@ const Logout = styled.div`
   justify-content: space-between;
   width: 50%;
   a {
-    font-size: 1.4em;
+    font-size: 1em;
   }
-  
+
   button {
     border: none;
-    background:none;
-    font-size: 1.4em;
+    background: none;
+    font-size: 1em;
   }
-  
-  button:hover, a:hover {
-      color: var(--main);
-      cursor: pointer;
+
+  button:hover,
+  a:hover {
+    color: var(--main);
+    cursor: pointer;
   }
 `;

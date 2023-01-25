@@ -66,7 +66,9 @@ const CardNew = styled(motion.div)`
   justify-content: center;
 `;
 
-const CardItself = styled(motion.div)``;
+const CardItself = styled(motion.div)`
+  width: 90%;
+`;
 
 const ContainerTop = styled(motion.div)`
   padding-top: 1rem;

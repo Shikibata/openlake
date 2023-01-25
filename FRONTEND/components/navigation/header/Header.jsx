@@ -12,17 +12,17 @@ export default function Header() {
     { text: 'Explore', href: '/explore' },
     { text: 'Connect', href: '/user/login' },
   ];
-  const [ profileId, setProfileId ] = useState(null)
+  const [profileId, setProfileId] = useState(null);
   const { theme, setTheme } = useTheme();
   const [themeState, setThemeState] = useState(false);
   const [navActive, setNavActive] = useState(null);
 
   useEffect(() => {
     setThemeState(true);
-      setProfileId(window.localStorage.profile_id);
+    setProfileId(window.localStorage.profile_id);
   }, []);
 
-  console.log(profileId)
+  console.log(profileId);
 
   if (!themeState) {
     return null;
@@ -67,26 +67,25 @@ export default function Header() {
       <NavMenuElements
         className={`${navActive ? 'active' : ''} nav__menu-list`}
       >
-        {profileId ?
-        <NavItems>
-          <a href={"/explore"} className={'nav__link'}>
-            Explore
-          </a>
-          <a href={"/user/profile"} className={'nav__link'}>
-            Profile
-          </a>
-        </NavItems>
-        :
-        <NavItems>
-          <a href={"/explore"} className={'nav__link'}>
-            Explore
-          </a>
-          <a href={"/user/login"} className={'nav__link'}>
-            Connect
-          </a>
-        </NavItems>
-      }
-
+        {profileId ? (
+          <NavItems>
+            <a href={'/explore'} className={'nav__link'}>
+              Explore
+            </a>
+            <a href={'/user/profile'} className={'nav__link'}>
+              Profile
+            </a>
+          </NavItems>
+        ) : (
+          <NavItems>
+            <a href={'/explore'} className={'nav__link'}>
+              Explore
+            </a>
+            <a href={'/user/login'} className={'nav__link'}>
+              Connect
+            </a>
+          </NavItems>
+        )}
 
         <ContainerTheme className={'theme'}>
           <Theme />
@@ -162,7 +161,7 @@ const NavItems = styled.div`
     position: relative;
     transition: ease-in-out 0.3s;
   }
-  
+
   a {
     margin-right: 50px;
   }
