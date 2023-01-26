@@ -97,9 +97,7 @@ const close = asyncHandler(async (req,res) => {
 const getMyTrades = asyncHandler(async (req,res) => {
     const  id  = req.params.id
     const myTrades = await Trade.find({"profile_id": id}).exec()
-    if(!myTrades?.length){
-        return res.status(400).json({message: 'No trade found'})
-    }
+    
     res.json(myTrades)
 })
 

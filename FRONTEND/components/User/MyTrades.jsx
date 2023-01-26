@@ -25,11 +25,10 @@ export default function MyNFTs({ ...profile }) {
   }, [profile._id]);
 
   return (
-
       <Container>
         <SectionTitle>History</SectionTitle>
         <ContainerHistory>
-        {trades.map((trade, id) => (
+        {trades.length ? (trades.map((trade, id)=> (
             <div key={id}>
               {!trade.close_datetime ? (
                   <div key={trade._id}>
@@ -42,11 +41,11 @@ export default function MyNFTs({ ...profile }) {
                     Sold {trade.nft_title} for {trade.open_price} ETH.
                   </div>
               )}
-            </div>
-        ))}
-        </ContainerHistory></Container>
-
-  )
+            </div>))) : <div>No trades.</div>
+        }
+        </ContainerHistory>
+      </Container>
+  );
 }
 
 const Container = styled.div`

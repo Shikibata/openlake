@@ -28,14 +28,11 @@ export default function MyNFTs({ ...profile }) {
     <Container>
       <SectionTitle>Collection</SectionTitle>
       <ContainerCards>
-      {nft.map((nfti, id) => (
-        <ClickHolder
-          key={nfti._id}
-          href={{ pathname: `/explore/[id]`, query: { id: nfti._id } }}
-        >
-          <ImageNft src={nfti.image} />
-        </ClickHolder>
-      ))}
+        {nft.length ? (
+          nft.map((nfti, id) => <ImageNft key={nfti._id} src={nfti.image} />)
+        ) : (
+          <div>No NFT.</div>
+        )}
       </ContainerCards>
     </Container>
   );
@@ -44,7 +41,6 @@ export default function MyNFTs({ ...profile }) {
 const Container = styled.div`
   width: 100%;
 `;
-
 
 const ContainerCards = styled.div`
   width: 100%;

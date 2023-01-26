@@ -13,6 +13,9 @@ router.route('/')
 router.route('/:id')
     .get(nftController.getNFT)
 
+router.route('/search/:search')
+    .get(nftController.findBySearch)
+
 
 
 module.exports = router

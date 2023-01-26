@@ -72,10 +72,10 @@ export default function Index() {
             Logout
           </button>
           <Link
-              href={{
-                pathname: `/user/profile/modif`,
-                query: { user_id: user._id, profile_id: profile._id },
-              }}
+            href={{
+              pathname: `/user/profile/modif`,
+              query: { user_id: user._id, profile_id: profile._id },
+            }}
           >
             Modify
           </Link>
@@ -103,11 +103,12 @@ export default function Index() {
           </div>
           <div>
             <Withdraw
-                href={{
-                  pathname: `/user/profile/balance`,
-                  query: { user_id: user._id, profile_id: profile._id },
-                }}
-            >Add/withdraw funds
+              href={{
+                pathname: `/user/profile/balance`,
+                query: { user_id: user._id, profile_id: profile._id },
+              }}
+            >
+              Add/withdraw funds
             </Withdraw>
           </div>
         </Infos>
@@ -143,11 +144,8 @@ const Withdraw = styled(Link)`
 `;
 
 const Infos = styled.div`
-  
-  
   @media (max-width: 1024px) {
     width: 100%;
-    
   }
   display: flex;
   justify-content: center;
@@ -162,9 +160,8 @@ const Infos = styled.div`
     gap: 5rem;
     padding: 0.5rem 0.5rem;
     align-items: center;
-    
-    @media (max-width: 1024px)
-    {
+
+    @media (max-width: 1024px) {
       padding: 0.5rem 0rem;
     }
 

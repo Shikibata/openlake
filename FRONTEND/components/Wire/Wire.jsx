@@ -10,6 +10,9 @@ export default function Wire() {
   const profile_id = router.query.profile_id;
   const [balance, setBalance] = useState([]);
   const [amount, setAmount] = useState(0);
+  const [added, setAdded] = useState(false);
+  const [withdrawed, setWithdrawed] = useState(false);
+  const [manipulatedAmount, setManipulatedAmount] = useState('');
 
   const getBalance = async () => {
     const configuration = {
@@ -33,6 +36,7 @@ export default function Wire() {
   //add funds
 
   const addFunds = async () => {
+    let amountInt = parseInt(amount);
     const configuration = {
       method: 'post',
       url: 'http://localhost:3500/wire',
@@ -40,14 +44,16 @@ export default function Wire() {
         user_id: localStorage.getItem('user_id'),
         profile_id: localStorage.getItem('profile_id'),
         withdrawal: false,
-        amount,
+        amount: amountInt,
       },
     };
     // prevent the form from refreshing the whole page
     axios(configuration)
       .then((result) => {
-        setBalance(balance + amount);
-        console.log(result);
+        getBalance();
+        setAdded(true);
+        setWithdrawed(false);
+        setManipulatedAmount(amountInt);
       })
       .catch((error) => {
         error = new Error();
@@ -57,6 +63,7 @@ export default function Wire() {
   //withdraw funds
 
   const withdrawFunds = async () => {
+    let amountInt = parseInt(amount);
     const configuration = {
       method: 'post',
       url: 'http://localhost:3500/wire',
@@ -64,14 +71,16 @@ export default function Wire() {
         user_id: localStorage.getItem('user_id'),
         profile_id: localStorage.getItem('profile_id'),
         withdrawal: true,
-        amount,
+        amount: amountInt,
       },
     };
     // prevent the form from refreshing the whole page
     axios(configuration)
       .then((result) => {
-        setBalance(balance - amount);
-        console.log(result);
+        getBalance();
+        setAdded(false);
+        setWithdrawed(true);
+        setManipulatedAmount(amountInt);
       })
       .catch((error) => {
         error = new Error();
@@ -79,19 +88,16 @@ export default function Wire() {
   };
 
   useEffect(() => {
+    if (!window.localStorage.profile_id) {
+      router.push('../user/login');
+    }
+  }, []);
+
+  useEffect(() => {
     if (router.isReady && window.localStorage.getItem('profile_id')) {
       getBalance();
     }
   }, [router.isReady]);
-
-  useEffect(() => {
-    window.localStorage.getItem('profile_id') !== 'undefined'
-      ? JSON.parse(window.localStorage.getItem('profile_id'))
-      : null;
-    if (!profile_id && router.pathname !== 'user/login') {
-      router.replace('../../user/login');
-    }
-  }, []);
 
   return (
     <div>
@@ -101,6 +107,7 @@ export default function Wire() {
       <input
         type="number"
         name="amount"
+        min="0"
         onChange={(e) => setAmount(e.target.value)}
       />
 
@@ -108,6 +115,18 @@ export default function Wire() {
         <button onClick={(e) => addFunds(e)}>Deposit funds</button>
         <button onClick={(e) => withdrawFunds(e)}>Withdraw funds</button>
       </div>
+
+      {added && !withdrawed ? (
+        <div>Added {manipulatedAmount} ETH.</div>
+      ) : (
+        <div></div>
+      )}
+
+      {withdrawed && !added ? (
+        <div>Withdrawed {manipulatedAmount} ETH.</div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
