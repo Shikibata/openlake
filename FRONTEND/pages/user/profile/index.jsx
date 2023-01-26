@@ -123,14 +123,13 @@ export default function Index() {
 
 const ProfileContainer = styled.div`
   height: auto;
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
   display: flex;
   flex-direction: column;
   place-items: center;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
-  overflow-y: hidden;
 `;
 
 const Withdraw = styled(Link)`

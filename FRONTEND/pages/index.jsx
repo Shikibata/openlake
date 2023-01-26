@@ -24,9 +24,6 @@ export default function Home() {
         </Middle>
         <Right>
           <h2>Lake</h2>
-          <ButtonRightConnect>
-            <a href={'/user/signup'}>Hop on the boat</a>
-          </ButtonRightConnect>
         </Right>
       </Container>
     </SecondaryLayout>
@@ -153,21 +150,3 @@ const Right = styled.div`
   }
 `;
 
-const ButtonRightConnect = styled.div`
-  display: flex;
-  position: absolute;
-  top: 80%;
-
-  @media (min-width: 1024px) {
-    left: 70%;
-    width: 100%;
-  }
-
-  a {
-    padding: 0.6rem 1rem;
-    border-radius: 10px;
-    background-color: var(--fg);
-    color: var(--bg);
-    border: 1px solid var(--fading-bg);
-  }
-`;

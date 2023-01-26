@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6669978-43d4-47b8-825d-6acc04745375" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SearchResults.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FRONTEND/pages/explore/search.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/experience/Camera.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/experience/Experience.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/experience/Renderer.js" beforeDir="false" />
@@ -33,14 +31,16 @@
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/image.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../My Room/public/textures/shiba.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/controllers/nftController.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/controllers/nftController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/controllers/tradeController.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/controllers/tradeController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/routes/nftRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/routes/nftRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BACKEND/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/BACKEND/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/BuyCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SearchResults.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SellCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SellCard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Card/SingleCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FRONTEND/components/User/MyNFTs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/User/MyNFTs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/User/MyTrades.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/User/MyTrades.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FRONTEND/components/Wire/Wire.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/Wire/Wire.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FRONTEND/components/navigation/header/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/navigation/header/SearchBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/components/navigation/footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/components/navigation/footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/explore/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/explore/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FRONTEND/pages/user/login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/user/login/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FRONTEND/pages/user/profile/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/FRONTEND/pages/user/profile/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -52,7 +52,7 @@ const CardIndex = styled(motion.div)`
 `;
 
 const ContainerNew = styled(motion.div)`
-  padding-top: 5rem;
+  padding-top: 2rem;
 
   h2 {
     text-align: center;

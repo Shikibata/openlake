@@ -59,7 +59,7 @@ export default function BuyCard() {
             <button type="submit" onClick={(e) => handleSubmit(e)}>
               Yes
             </button>
-            <Link href={{ pathname: `/explore` }}>No</Link>
+            <a href="../explore">No</a>
           </div>
         )}
       </ContainerTrade>
@@ -97,9 +97,22 @@ const ContainerTrade = styled.div`
 
   a,
   button {
+    margin: 0;
+    align-items: center;
     font-size: 1.4rem;
-  }
-  button {
-    width: 3rem;
+    width: 20%;
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    background-color: var(--bg);
+    cursor: pointer;
+    margin-bottom: 1rem;
+
+    :hover {
+      background-color: var(--main);
+      color: var(--fg);
+    }
   }
 `;

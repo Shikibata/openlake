@@ -26,6 +26,12 @@ export default function SingleCard() {
     }
   }, [router.isReady]);
 
+  useEffect(() => {
+    if (!window.localStorage.profile_id) {
+      router.push('../user/login');
+    }
+  }, []);
+
   return (
     <Container>
       <ImageHolder>
@@ -72,7 +78,7 @@ const Container = styled.div`
   margin-right: auto;
 
   @media (min-width: 768px) {
-    padding: 5rem 1rem;
+    padding: 1rem 1rem;
     flex-direction: row;
   }
 `;

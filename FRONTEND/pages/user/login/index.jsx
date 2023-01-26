@@ -4,8 +4,11 @@ import Image from 'next/image';
 import Theme from '../../../components/navigation/header/Theme';
 import { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
+
 
 export default function Index() {
+  const router = useRouter();
   const Form = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,6 +34,7 @@ export default function Index() {
           localStorage.setItem('profile_id', `${profileId}`);
           localStorage.setItem('user_id', `${userId}`);
           setLogin(true);
+          router.push('/');
         })
         .catch((error) => {
           console.log(error.response, email, password);

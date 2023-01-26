@@ -2,29 +2,17 @@ import styled from '@emotion/styled';
 import NavItem from '../header/NavItem';
 
 export default function Footer({ text, href }) {
-  const FOOTER_LIST = [
-    { text: 'Home', href: '/' },
-    { text: 'About Us', href: '/user/login' },
-    { text: 'Contact', href: '/contact' },
-  ];
 
   return (
     <Feeter>
       <Border />
       <Span>© 2023 - Maxime & Loïc</Span>
-      <ContainerList>
-        {FOOTER_LIST.map((menu, id) => (
-          <div key={menu.text}>
-            <NavItem {...menu} />
-          </div>
-        ))}
-      </ContainerList>
     </Feeter>
   );
 }
 
 const Border = styled.div`
-  margin: 0px auto 10px auto;
+  margin: 0px auto 0px auto;
   border-top: 2px solid var(--fading-bg);
   width: 75%;
 `;
@@ -49,7 +37,7 @@ const Feeter = styled.footer`
 `;
 
 const Span = styled.span`
-  margin: 4px 16px;
+  margin: 10px 16px;
   color: var(--fg);
 `;
 

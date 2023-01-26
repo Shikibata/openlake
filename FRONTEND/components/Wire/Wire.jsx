@@ -34,58 +34,57 @@ export default function Wire() {
   };
 
   //add funds
-
-  const addFunds = async () => {
-    let amountInt = parseInt(amount);
-    const configuration = {
-      method: 'post',
-      url: 'http://localhost:3500/wire',
-      data: {
-        user_id: localStorage.getItem('user_id'),
-        profile_id: localStorage.getItem('profile_id'),
-        withdrawal: false,
-        amount: amountInt,
-      },
-    };
-    // prevent the form from refreshing the whole page
-    axios(configuration)
-      .then((result) => {
-        getBalance();
-        setAdded(true);
-        setWithdrawed(false);
-        setManipulatedAmount(amountInt);
-      })
-      .catch((error) => {
-        error = new Error();
-      });
-  };
+    const addFunds = async() => {
+      let amountInt = parseFloat(amount)
+        const configuration = {
+            method: 'post',
+            url: 'http://localhost:3500/wire',
+            data: {
+                user_id: localStorage.getItem('user_id'),
+                profile_id: localStorage.getItem('profile_id'),
+                withdrawal: false,
+                amount: amountInt
+            },
+          };
+        // prevent the form from refreshing the whole page
+        axios(configuration)
+          .then((result) => {
+            getBalance()
+            setAdded(true)
+            setWithdrawed(false)
+            setManipulatedAmount(amountInt)
+          })
+          .catch((error) => {
+            error = new Error();
+          });
+    }
 
   //withdraw funds
 
-  const withdrawFunds = async () => {
-    let amountInt = parseInt(amount);
-    const configuration = {
-      method: 'post',
-      url: 'http://localhost:3500/wire',
-      data: {
-        user_id: localStorage.getItem('user_id'),
-        profile_id: localStorage.getItem('profile_id'),
-        withdrawal: true,
-        amount: amountInt,
-      },
-    };
-    // prevent the form from refreshing the whole page
-    axios(configuration)
-      .then((result) => {
-        getBalance();
-        setAdded(false);
-        setWithdrawed(true);
-        setManipulatedAmount(amountInt);
-      })
-      .catch((error) => {
-        error = new Error();
-      });
-  };
+    const withdrawFunds = async() => {
+      let amountInt = parseFloat(amount)
+        const configuration = {
+            method: 'post',
+            url: 'http://localhost:3500/wire',
+            data: {
+                user_id: localStorage.getItem('user_id'),
+                profile_id: localStorage.getItem('profile_id'),
+                withdrawal: true,
+                amount: amountInt
+            },
+          };
+        // prevent the form from refreshing the whole page
+        axios(configuration)
+          .then((result) => {
+            getBalance()
+            setAdded(false)
+            setWithdrawed(true)
+            setManipulatedAmount(amountInt)
+          })
+          .catch((error) => {
+            error = new Error();
+          });
+    }
 
   useEffect(() => {
     if (!window.localStorage.profile_id) {
@@ -100,8 +99,10 @@ export default function Wire() {
   }, [router.isReady]);
 
   return (
-    <div>
-      <div>{balance} ETH available.</div>
+      <Container>
+        <ContainerWire>
+          {balance == 0 ? <div>0 ETH available.</div> :
+          <div>{balance} ETH available.</div>}
 
       <label htmlFor="amount">Amount</label>
       <input
@@ -127,6 +128,74 @@ export default function Wire() {
       ) : (
         <div></div>
       )}
-    </div>
+        </ContainerWire>
+      </Container>
   );
 }
+
+const Container = styled.div`
+  padding: 1rem 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 2rem;
+  }
+`;
+
+const ContainerWire = styled.div`
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+  }
+  a,
+  button {
+    margin: 0;
+    align-items: center;
+    font-size: 1.1rem;
+    width: 20%;
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    background-color: var(--bg);
+    cursor: pointer;
+
+    :hover {
+      background-color: var(--main);
+      color: var(--fg);
+    }
+  }
+  label {
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.1em;
+  }
+  input {
+    appearance: textfield;
+    border-radius: 10px;
+    border-color: var(--fg);
+    padding: 0.3rem;
+
+    :focus {
+      outline-color: var(--main);
+    }
+
+  }
+
+  
+`;

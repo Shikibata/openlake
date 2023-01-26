@@ -52,10 +52,10 @@ export default function BuyCard() {
           Buy {nft.title} for {nft.price} ETH?
         </p>
         {bought ? (
-          <Link href={{ pathname: `/explore` }}>
-            {nft.title} was bought for {nft.price} ETH. Click to go back to
+          <a href={'/explore'}>
+            <p>{nft.title} was bought for {nft.price} ETH.</p> Click to go back to
             index.
-          </Link>
+          </a>
         ) : (
           <div>
             <button type="submit" onClick={(e) => handleSubmit(e)}>
@@ -96,12 +96,23 @@ const ContainerTrade = styled.div`
     gap: 2rem;
     margin-top: 2rem;
   }
-
   a,
   button {
+    margin: 0;
+    align-items: center;
     font-size: 1.4rem;
-  }
-  button {
-    width: 3rem;
+    width: 20%;
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    background-color: var(--bg);
+    cursor: pointer;
+
+    :hover {
+      background-color: var(--main);
+      color: var(--fg);
+    }
   }
 `;

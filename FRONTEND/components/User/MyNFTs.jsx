@@ -28,11 +28,12 @@ export default function MyNFTs({ ...profile }) {
     <Container>
       <SectionTitle>Collection</SectionTitle>
       <ContainerCards>
-        {nft.length ? (
-          nft.map((nfti, id) => <ImageNft key={nfti._id} src={nfti.image} />)
-        ) : (
+        {
+            nft.length > 0 ?
+          nft.map((nfti, id) => <Link key={id} href={{pathname: `../explore/[id]`, query: {id: nfti._id}}}><ImageNft src={nfti.image} /></Link>)
+          :
           <div>No NFT.</div>
-        )}
+        }
       </ContainerCards>
     </Container>
   );
