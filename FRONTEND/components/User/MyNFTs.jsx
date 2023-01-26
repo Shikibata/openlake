@@ -30,7 +30,7 @@ export default function MyNFTs({ ...profile }) {
         
         {
         
-            nft.length ?
+            nft.length > 0 ?
          
           nft.map((nfti, id) => <ImageNft key={nfti._id} src={nfti.image} />) 
 

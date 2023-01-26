@@ -37,7 +37,7 @@ export default function Wire() {
   //add funds
 
     const addFunds = async() => {
-      let amountInt = parseInt(amount)
+      let amountInt = parseFloat(amount)
         const configuration = {
             method: 'post',
             url: 'http://localhost:3500/wire',
@@ -64,7 +64,7 @@ export default function Wire() {
   //withdraw funds
 
     const withdrawFunds = async() => {
-      let amountInt = parseInt(amount)
+      let amountInt = parseFloat(amount)
         const configuration = {
             method: 'post',
             url: 'http://localhost:3500/wire',
